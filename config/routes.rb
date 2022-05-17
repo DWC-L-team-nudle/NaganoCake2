@@ -19,9 +19,9 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :addresses
     resources :cart_items
     resources :items
-    get "/customers/mypage" => "customers#show"
-    # get "/customers/edit" => "customers#edit"
-    resources :customers , except: [:show]
+    #get "/customers/mypage" => "customers#show"
+    #get "/customers/edit" => "customers#edit"
+    resources :customers #, except: [:show]
     resources :items
     resources :orders
 

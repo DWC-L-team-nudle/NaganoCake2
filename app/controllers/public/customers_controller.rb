@@ -1,26 +1,35 @@
 class Public::CustomersController < ApplicationController
   # 今はバリデーションを無視して実装します
   # before_action :authenticate_costomer!
-  # before_action :ensure_correct_costomer, only: [:edit, :update]
+   before_action :ensure_correct_customer, only: [:show, :edit, :update]
 
   def show
-    @customer = current_customer
+    @customer = Customer.find(params[:id])
   end
 
   def edit
-    @customer = current_customer
+    @customer = Customer.find(params[:id])
+  end
+
+  def update
+    @customer = Customer.find(params[:id])
+    if @customer.update(customer_params)
+      redirect_to customer_path(@customer)
+    else
+      render :edit
+    end
   end
 
   private
 
-  def costomer_params
-    params.require(:costomer).permit(:name, :introduction, :profile_image)
+  def customer_params
+    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :telephone_number, :email)
   end
 
-  def ensure_correct_costomer
-    @costomer = Costomer.find(params[:id])
-    unless @costomer == current_costomer
-      redirect_to costomer_path(current_costomer)
+  def ensure_correct_customer
+    @customer = Customer.find(params[:id])
+    unless @customer == current_customer
+      redirect_to customer_path(current_customer)
     end
   end
 end
