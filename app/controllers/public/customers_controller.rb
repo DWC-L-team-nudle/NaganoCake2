@@ -1,7 +1,6 @@
 class Public::CustomersController < ApplicationController
-  # 今はバリデーションを無視して実装します
-  # before_action :authenticate_costomer!
-   before_action :ensure_correct_customer, only: [:show, :edit, :update]
+  before_action :authenticate_customer!
+  # before_action :ensure_correct_customer, only: [:show, :edit, :update]
 
   def show
     @customer = Customer.find(params[:id])
@@ -18,6 +17,14 @@ class Public::CustomersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def withdrawal
+    @customer = User.find(params[:id])
+    @customer.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "退会処理を実行いたしました"
+    redirect_to root_path
   end
 
   private

@@ -7,5 +7,11 @@ class Customer < ApplicationRecord
   validates :last_name_kana, format: { with:  /\A[\p{katakana}\p{blank}ー－]+\z/ }
   validates :first_name_kana, format: { with:  /\A[\p{katakana}\p{blank}ー－]+\z/ }
 
-  # KATAKANA_REGEXP = /\A[\p{katakana}\u{30fc}]+\z/
+  # is_deletedがfalseならtrueを返すようにしている
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
+
+  
+
 end
