@@ -15,4 +15,16 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
  root to: 'public/homes#top'
  get 'about' =>'public/homes#about'
 
+  scope module: :public do
+    resources :addresses
+    resources :cart_items
+    resources :items
+    get "/customers/mypage" => "customers#show"
+    # get "/customers/edit" => "customers#edit"
+    resources :customers , except: [:show]
+    resources :items
+    resources :orders
+
+  end
+
 end
