@@ -5,27 +5,23 @@ devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
-
 # 管理者用
 # URL /admin/sign_in ...
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
-
-
 namespace :admin do
 resources :customers, only: [:index,:show,:edit,:update]
 end
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
  root to: 'public/homes#top'
  get 'about' =>'public/homes#about'
-
-
 # 任意のURIへのルーティング変更は後日行います（大場）
 # 退会ビューへのリンクは未実装です。コメントアウトを消すとエラーが出ます
   scope module: :public do
     resources :addresses
+    resources :cart_items
+    resources :items
     #get "/customers/mypage" => "customers#show"
     #get "/customers/edit" => "customers#edit"
     resources :customers #, except: [:show]
@@ -33,6 +29,8 @@ end
     get '/customers/:id/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
     # 論理削除用のルーティング
     patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
+    resources :items
+    resources :orders
     resources :items, only: [:index, :show]
     resources :orders, only: [:new, :create, :index, :show] do
       collection do
@@ -47,5 +45,6 @@ end
     end
 
   end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
