@@ -26,8 +26,6 @@ end
 # 退会ビューへのリンクは未実装です。コメントアウトを消すとエラーが出ます
   scope module: :public do
     resources :addresses
-    resources :cart_items
-    resources :items
     #get "/customers/mypage" => "customers#show"
     #get "/customers/edit" => "customers#edit"
     resources :customers #, except: [:show]
@@ -35,10 +33,19 @@ end
     get '/customers/:id/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
     # 論理削除用のルーティング
     patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
-    resources :items
-    resources :orders
+    resources :items, only: [:index, :show]
+    resources :orders, only: [:new, :create, :index, :show] do
+      collection do
+        post 'comfirm' => 'orders#comfirm'
+        get 'complete' => 'orders#complete'
+      end
+    end
+    resources :cart_items, only: [:index, :create, :destroy, :update,] do
+      collection do
+        delete 'destroy_all' => 'cart_items#destroy_all'
+      end
+    end
 
   end
-  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
