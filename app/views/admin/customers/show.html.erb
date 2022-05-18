@@ -1,4 +1,7 @@
-<h2><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h2>
+<h2>
+  <%= @customer.last_name + @customer.first_name %>
+  さんの会員詳細
+</h2>
 <table class="table">
   <tbody>
     <tr>
@@ -37,11 +40,19 @@
     </tr>
     <tr>
       <td>会員ステータス</td>
-      <td><%= @customer.is_deleted %></td>
+      <td>
+        <% if @customer.active_for_authentication? %>
+          <b class="text_success">有効</b>
+        <% else %>
+          <b class="text-muted">退会</b>
+        <% end %>
+      </td>
     </tr>
   </tbody>
 </table>
 
-<div><%= link_to "編集する", edit_admin_@customer_path(params[:id], class: "btn btn-success" %></div>
-<div><%= link_to "注文履歴一覧を見る", admin_@customers_path, class: "btn btn-primary" %></div>
+<div>
+  <%= link_to "編集する", edit_admin_customer_path(params[:id]), class: "btn btn-success" %>
+  <%= link_to "注文履歴一覧を見る", admin_customers_path, class: "btn btn-primary" %>
+</div>
 
