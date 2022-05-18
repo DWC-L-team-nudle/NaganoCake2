@@ -10,7 +10,7 @@
   </div>
   <div>
     <%= f.label :商品説明 %>
-    <%= f.text_area :description %>
+    <%= f.text_area :introduction %>
   </div>
   <div>
     <%= f.label :ジャンル %>
@@ -22,8 +22,8 @@
   </div>
   <div>
     <%= f.label :販売ステータス %>
-    <%= f.radio_button :sales_status, :true %>販売中
-    <%= f.radio_button :sales_status, :false %>販売停止中
+    <%= f.radio_button :is_active, :true %>販売中
+    <%= f.radio_button :is, :false %>販売停止中
   </div>
   <div>
     <%= f.submit "新規登録" %>
