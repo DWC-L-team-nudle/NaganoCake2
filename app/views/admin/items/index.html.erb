@@ -1,44 +1,51 @@
-<div class="container my-5">
-  <div class="row">
-    <h2>商品一覧</h2>
+<div class="px-5 mx-5">
+  <div class="mx-5 row">
+    <div class="mb-5"><h3 class="mini-title">商品一覧</h3></div>
+    <div class="offset-9">
+      <%= link_to(new_admin_item_path,style:"font-size:40px; color:orange;") do %>
+        <i class="far fa-plus-square"></i>
+      <% end %>
+    </div>
   </div>
-  <div class="row text-right">
-    <%= link_to "+", new_admin_item_path, class: "btn btn-lg rounded-circle text-right ml-auto shadow-sm" %>
-  </div>
+</div>
 
-  <div class="row mt-1">
-    <table class="table table-hover text-center">
-      <thead>
+<div class="px-5">
+  <div class="row mx-5 px-5">
+    <table class="table mx-5 table-borderless table-hover table-background">
+      <thead class="thead-light">
         <tr>
-          <th>商品ID</th>
-          <th>商品名</th>
-          <th>税抜き価格</th>
-          <th>ジャンル</th>
-          <th>ステータス</th>
+          <th style="width: 10%">商品ID</th>
+          <th style="width: 30%">商品名</th>
+          <th style="width: 20%">税込価格</th>
+          <th style="width: 20%">ジャンル</th>
+          <th style="width: 20%">ステータス</th>
         </tr>
       </thead>
-
       <tbody>
         <% @items.each do |item| %>
-          <tr>
-            <td><%= item.id %></td>
-            <td><%= link_to item.name, admin_item_path(item) %></td>
-            <td><%= item.price %></td>
-            <td><%= item.genre.name %></td>
-            <td><%= item.sale_status %></td>
+          <tr onclick='window.location="<%= '/admin/items/' + item.id.to_s %>"' role="link">
+            <td class="py-4" style="width: 10%">
+              <%= item.id %>
+            </td>
+            <td class="py-4">
+              <u><%= link_to item.name, admin_item_path(item), class:"text-dark" %></u>
+            </td>
+            <td class="py-4">
+              <%= item.price.to_s(:delimited) %>
+            </td>
+            <td class="py-4">
+              <%= item.genre.name %>
+            </td>
+            <td class="py-4">
+              <% if item.is_active_i18n == "販売中" %>
+                <b class="text-success"><%= item.is_active_i18n %></b>
+              <% else %>
+                <b class="text-muted"><%= item.is_active_i18n %></b>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>
     </table>
   </div>
-
-<div class="container">
-  <div class="row">
-   <div class="col-md-4 offset-md-4 py-2  mt-5">
-    <%= paginate @items %>
-   </div>
-  </div>
 </div>
-
-</div>
-
