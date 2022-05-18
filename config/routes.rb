@@ -15,6 +15,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
 namespace :admin do
 resources :customers, only: [:index,:show,:edit,:update]
+end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
  root to: 'public/homes#top'
@@ -39,6 +40,5 @@ resources :customers, only: [:index,:show,:edit,:update]
 
   end
   
-end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
