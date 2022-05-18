@@ -15,4 +15,23 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
  root to: 'public/homes#top'
  get 'about' =>'public/homes#about'
 
+
+# 任意のURIへのルーティング変更は後日行います（大場）
+# 退会ビューへのリンクは未実装です。コメントアウトを消すとエラーが出ます
+  scope module: :public do
+    resources :addresses
+    resources :cart_items
+    resources :items
+    #get "/customers/mypage" => "customers#show"
+    #get "/customers/edit" => "customers#edit"
+    resources :customers #, except: [:show]
+    # 退会確認画面
+    get '/customers/:id/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
+    # 論理削除用のルーティング
+    patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
+    resources :items
+    resources :orders
+
+  end
+
 end
