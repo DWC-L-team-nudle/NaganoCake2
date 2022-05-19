@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="mx-auto">
+    <p>配送先登録 / 一覧<p>
+
+    <%= form_with model: @address_new, local:true do |f| %>
+    <%= render "layouts/errors", obj: @address_new %>
+    <div>郵便番号(ハイフンなし)<%= f.text_field :postal_code %></div>
+
+    <div>住所<%= f.text_field :address %></div>
+
+    <div>宛名<%= f.text_field :name %></div>
+
+  　<%= f.submit "新規登録", class: "btn btn-success" %>
+
+    <% end %>
+
+    <% if @addresses.exists? %>
+      <table class='table table-bordered'>
+        <thead>
+          <tr>
+            <th>郵便番号</th>
+            <th>住所</th>
+            <th>宛名</th>
+            <th></th>
+          </tr>
+        </thread>
+        <tbody>
+          <% @addresses.each do |address| %>
+          <tr>
+            <td><%= address.postal_code %></td>
+            <td><%= address.address %></td>
+            <td><%= address.name %></td>
+            <td><%= link_to "編集する", edit_address_path(address), class:"btn btn-success" %>
+                <%= link_to "削除する", address_path(address), method: :delete, class:"btn btn-danger", "data-confirm" => "本当に消しますか?"  %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p class="fs-4">登録されている配送先はありません</p>
+    <% end %>
+  </div>
+</div>
