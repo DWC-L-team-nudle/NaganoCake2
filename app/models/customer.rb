@@ -8,6 +8,7 @@ class Customer < ApplicationRecord
   validates :first_name_kana, format: { with:  /\A[\p{katakana}\p{blank}ー－]+\z/ }
 
   has_many :addresses, dependent: :destroy
+  has_many :orders, dependent: :destroy
 
   # is_deletedがfalseならtrueを返すようにしている、
   #退会したら再度ログインできないようにしている
