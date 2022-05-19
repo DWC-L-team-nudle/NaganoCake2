@@ -15,7 +15,8 @@ root to: 'homes#top'
 resources :customers, only: [:index,:show,:edit,:update]
 resources :items, except: [:destroy]
 resources :genres, except: [:new, :show, :destroy]
-resources :orders, only: [:index, :show]
+resources :orders, only: [:show, :update]
+resources :order_details, only: [:update]
 end
 
  root to: 'public/homes#top'
