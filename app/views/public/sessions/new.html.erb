@@ -1,9 +1,11 @@
-<div class="container">
+<div class="p-5 m-5">
+  <div class="pl-5 ml-5">
+    <h3 class="mb-5 ml-5 mini-title">　ログイン　</h3>
+  </div>
   <div class="row">
-    <div class="mx-auto">
-      <p class="signup_message">　ログイン　<p>
+    <div class="col-6 offset-3">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <p class="signup_message">　会員の方はこちらからログイン　</p>
+        <p class="mini-title">　会員の方はこちらからログイン　</p>
         <div class="field">
           <%= f.label :email, "メールアドレス" %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -18,8 +20,10 @@
           <%= f.submit "ログイン",class: 'btn btn-sm btn-primary' %>
         </div>
       <% end %>
-      <p class="signup_message">　会員登録がお済みでない方　</p></br>
-      <%= render "public/shared/links" %>
     </div>
+  </div>
+  <div class="col-6 offset-3">
+    <p class="mini-title">　会員登録がお済みでない方　</p></br>
+    <%= render "public/shared/links" %>
   </div>
 </div>

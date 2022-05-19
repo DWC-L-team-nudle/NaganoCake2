@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-.signup_message{
+.mini-title{
   background-color: #EEEEEE;
   display: inline-block;
   }
