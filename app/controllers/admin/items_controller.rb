@@ -23,7 +23,7 @@ class Admin::ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.save
      flash[:notice] = "商品を登録しました"
-     redirect_to admin_item_path
+     redirect_to admin_item_path(@item.id)
   end
 
   def update
@@ -36,7 +36,7 @@ class Admin::ItemsController < ApplicationController
   private
 
     def item_params
-      params.require(:item).permit(:genre_id, :name, :introduction, :price, :is_active)
+      params.require(:item).permit(:item_image, :genre_id, :name, :introduction, :price, :is_active)
     end
 
 end
