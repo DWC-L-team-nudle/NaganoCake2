@@ -1,10 +1,10 @@
-<h2><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h2>
+<h2><%= @customer.last_name + @customer.first_name %>さんの会員情報編集</h2>
+<%= form_with model: @customer, url: admin_customer_path(@customer.id) do |f| %>
 <table class="table">
   <tr>
     <td>会員ID</td>
     <td><%= @customer.id %></td>
   </tr>
-  <%= form_with model: @customer, url: edit_admin_customer_path do |f| %>
   <tr>
     <td>氏名</td>
     <td>
@@ -38,13 +38,13 @@
   <tr>
     <td>会員ステータス</td>
     <td>
-      <%= f.radio_button :is_deleted, "valid" %>
+      <%= f.radio_button :is_deleted, "false" %>
       <%= f.label :is_deleted, "有効" %>
-    </td>
-    <td>
-      <%= f.radio_button :is_deleted, "withdrawal" %>
+      <%= f.radio_button :is_deleted, "ture" %>
       <%= f.label :is_deleted, "退会" %>
     </td>
   </tr>
-  <% end %>
 </table>
+
+<div><%= f.submit "変更を保存", class: "btn btn-success" %></div>
+<% end %>

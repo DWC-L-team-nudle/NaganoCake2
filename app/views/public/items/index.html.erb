@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <%#<%= render 'genre', genres: @genres %><p>ジャンル表示予定</p>
+    </div>
+    <div class="col-8">
+      <div class="row">
+        <h3>商品一覧（全<%= @items.count %>件）</h3>
+      </div>
+      <div class="row">
+        <% @items.each do |item| %>
+          <%= link_to item_path(item) do %>
+            <%= image_tag item.get_item_image, size: "210x150" %>
+            <p>商品名<%= item.name %></p>
+            <% end %>
+          <p>¥<%= item.price.to_s(:delimited) %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+  <%= paginate @items %>
