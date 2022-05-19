@@ -27,9 +27,8 @@ end
  #get "/customers/mypage" => "customers#show"
  #get "/customers/edit" => "customers#edit"
  resources :customers #, except: [:show]
- # 退会確認画面
+ # 退会確認画面&論理削除用のルーティング
  get '/customers/:id/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
- # 論理削除用のルーティング
  patch '/customers/:id/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
  resources :items, only: [:index, :show]
  resources :orders, only: [:new, :create, :index, :show] do
