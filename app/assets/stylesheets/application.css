@@ -14,14 +14,15 @@
  *= require_self
  */
  main{
-    /*background-image: url(background-sample.jpg);*/
+    background-image: url(background-sample.jpg);
     background-size: cover;
-    background-position: center
+    background-position: center;
     }
 
 .mini-title{
-  background-color: #EEEEEE;
+  background-color: #B8860B;/*背景色*/
   display: inline-block;
+  padding: 0 10px
   }
 
 .card{
@@ -31,11 +32,36 @@
   }
 
 .greeting-message{
-  height: 200px;
-  width: 600px;
+  height: 180px;
+  width: 400px;
   display: flex;
   align-items: center;
+  justify-content: center;
   background-color: rgba(0, 0, 0, 0.4);
   color: #fff;
   }
 
+header{
+  background-color: #CD853F;
+  }
+
+footer{
+  background-color: #CD853F;
+  }
+
+footer p{
+   text-align: center;
+   font-size: small;
+   }
+
+.copy{
+  font-size: x-small}
+
+.social i{
+  display: inline-block;
+  margin-left: 20px;
+  }
+
+.table-background {
+  background-color: rgba(0,0,0,0.3);
+}

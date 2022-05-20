@@ -1,14 +1,22 @@
-<div class="container">
-  <div class="mx-auto">
-    <p>配送先登録 / 一覧<p>
+<div class="col-8 mx-auto">
+    <h4 class="mini-title">配送先登録 / 一覧</h4>
 
     <%= form_with model: @address_new, local:true do |f| %>
     <%= render "layouts/errors", obj: @address_new %>
-    <div>郵便番号(ハイフンなし)<%= f.text_field :postal_code %></div>
+    <div class="form-group row">
+      <%= f.label :postal_code, "郵便番号(ハイフンなし)", class: "col-3" %>
+      <%= f.text_field :postal_code, placeholder: "0000000", class: "form-control col-3" %>
+    </div>
 
-    <div>住所<%= f.text_field :address %></div>
+    <div class="form-group row">
+      <%= f.label :address, "住所", class: "col-3" %>
+      <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0－0", class: "form-control col-5" %>
+    </div>
 
-    <div>宛名<%= f.text_field :name %></div>
+    <div class="form-group row">
+      <%= f.label :name, "宛名", class: "col-3" %>
+      <%= f.text_field :name, placeholder: "令和道子", class: "form-control col-3" %>
+    </div>
 
   　<%= f.submit "新規登録", class: "btn btn-success" %>
 
@@ -37,7 +45,6 @@
         </tbody>
       </table>
     <% else %>
-      <p class="fs-4">登録されている配送先はありません</p>
+      <p class="fs-4 pb-3">登録されている配送先はありません</p>
     <% end %>
-  </div>
 </div>
