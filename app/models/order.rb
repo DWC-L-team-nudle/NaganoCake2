@@ -11,7 +11,7 @@ class Order < ApplicationRecord
     validates :postal_code
     validates :address
     validates :name
-    validates :shipping_cost
+    validates :shopping_fee
     validates :total_payment
     validates :payment_method
     validates :status
@@ -20,4 +20,10 @@ class Order < ApplicationRecord
   def status_display
     status_i18n
   end
+  
+  # 小計計算メソッド
+  def subtotal
+    item.with_tax_price * amount
+  end
+
 end
