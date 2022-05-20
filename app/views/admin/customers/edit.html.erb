@@ -1,13 +1,6 @@
 <div class="container px-5 mx-5">
   <h3 class="m-3 mini-title"><%= @customer.last_name + @customer.first_name %>さんの会員情報編集</h3>
-  <div id="error" class="ml-5">
-<%
-=begin
-%>
-    エラー文部分テンプレート
-<%
-=end
-%></div>
+  <div><%= render 'layouts/errors', obj: @customer %></div>
 
 <div class="px-5 mx-5 row">
   <div class="col-9">
