@@ -24,7 +24,7 @@ end
 # 任意のURIへのルーティング変更は後日行います（大場）
  scope module: :public do
  resources :addresses
- #get "/customers/mypage" => "customers#show"
+ get "/customers/mypage" => "customers#show"
  #get "/customers/edit" => "customers#edit"
  resources :customers #, except: [:show]
 
