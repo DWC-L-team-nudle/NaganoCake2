@@ -1,6 +1,7 @@
 class Public::CartItemsController < ApplicationController
   before_action :authenticate_customer!
 
+
   def index
     @cart_items = current_customer.cart_items
   end
@@ -16,12 +17,12 @@ class Public::CartItemsController < ApplicationController
        cart_item.amount = cart_item.amount+params[:cart_item][:amount].to_i
        cart_item.save
        flash[:notice] = "カートに商品が追加されました"
-       redirect_to cart_items_path
+       redirect_to cart_items_path and return
 
     else
        @cart_item.save
     end
-       redirect_to cart_items_path
+       redirect_to cart_items_path and return
   end
 
 
