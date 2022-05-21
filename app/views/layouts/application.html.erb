@@ -13,7 +13,13 @@
 
   <body>
     <header>
-      <%= render "layouts/header_customer", customer: current_customer %>
+    <% if current_customer == nil && current_admin == nil %>
+      <%= render 'layouts/header_visitor' %>
+    <% elsif current_customer == nil && current_admin.present? %>
+      <%= render 'layouts/header_admin' %>
+    <% else current_customer == true && current_admin == nil %>
+      <%= render 'layouts/header_customer' %>
+    <% end %>
     </header>
     <main>
       <%= yield %>

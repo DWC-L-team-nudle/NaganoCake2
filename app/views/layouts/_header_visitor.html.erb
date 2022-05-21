@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light border-bottom border-dark" >
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom" >
   <div class="container">
     <a class="navbar-brand" href="/"><span>Nagano Cake</span></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -6,21 +6,19 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto">
-          <%#ようこそ、<%= current_customer.last_name + " " + current_customer.first_name %>さん！
           <li>
-            <%= link_to 'マイページ', customers_mypage_path, class: 'nav-link btn btn-outline-secondary mr-2' %>
+            <%= link_to 'About', about_path, class: 'nav-link btn btn-outline-secondary mr-2' %>
           </li>
           <li>
             <%= link_to '商品一覧', items_path, class: 'nav-link btn btn-outline-secondary mr-2' %>
           </li>
           <li>
-          <!--カートへのリンク追加が必要-->
-            <%= link_to 'カート', class: 'nav-link btn btn-outline-secondary mr-2' %>
+            <%= link_to '新規登録', new_customer_registration_path, class: 'nav-link btn btn-outline-secondary mr-2' %>
           </li>
           <li>
-            <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: 'nav-link btn btn-outline-secondary' %>
+            <%= link_to 'ログイン', new_customer_session_path, class: 'nav-link btn btn-outline-secondary' %>
           </li>
-      </ul>
+     </ul>
     </div>
   </div>
 </nav>

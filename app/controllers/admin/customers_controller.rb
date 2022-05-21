@@ -6,7 +6,7 @@ class Admin::CustomersController < ApplicationController
   end
 
   def index
-    @customers = Customer.all
+    @customers = Customer.page(params[:page]).per(1)
   end
 
   def edit
@@ -22,6 +22,12 @@ class Admin::CustomersController < ApplicationController
        render :edit
     end
  end
+ 
+ def order_index
+    @customer = Customer.find(params[:customer_id])
+    @orders = @customer.orders.order("created_at DESC").page(params[:page])
+ end
+
 
  private
  def customer_params
