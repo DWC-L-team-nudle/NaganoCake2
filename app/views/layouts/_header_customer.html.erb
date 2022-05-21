@@ -14,8 +14,7 @@
             <%= link_to '商品一覧', items_path, class: 'nav-link btn btn-outline-secondary mr-2' %>
           </li>
           <li>
-          <!--カートへのリンク追加が必要-->
-            <%= link_to 'カート', class: 'nav-link btn btn-outline-secondary mr-2' %>
+            <%= link_to 'カート', cart_items_path, class: 'nav-link btn btn-outline-secondary mr-2' %>
           </li>
           <li>
             <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: 'nav-link btn btn-outline-secondary' %>
