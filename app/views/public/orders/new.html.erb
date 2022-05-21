@@ -13,7 +13,7 @@
 <div>
 <%= f.radio_button :select_address, "0" %>
 <%= f.label :select_address, "ご自身の住所" %>
-<p>〒<%= current_customer.postal_code %> <%= current_customer.address %> <%= current_customer.first_name %> <%= current_customer.last_name %> </p>
+<p>〒<%= current_customer.postal_code %> <%= current_customer.address %> <%= current_customer.last_name %><%= current_customer.first_name %>  </p>
 </div>
 <div>
 <%= f.radio_button :select_address, "1" %>

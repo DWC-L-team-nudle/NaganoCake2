@@ -1,17 +1,18 @@
 <div class="container">
   <div class="row">
-    <div class="col-4">
+    <div class="col-3">
       <%#<%= render 'genre', genres: @genres %><p>ジャンル表示予定</p>
     </div>
     <div class="col-8">
       <div class="row">
         <h3>商品一覧（全<%= @items.count %>件）</h3>
       </div>
-      <div class="row">
+      <div class="row mx-auto">
         <% @items.each do |item| %>
+        <div class="col-4 text-center">
           <%= link_to item_path(item) do %>
             <%= image_tag item.get_item_image(210,150) %>
-            <p>商品名<%= item.name %></p>
+            <p>商品名<br/><%= item.name %></p>
             <% end %>
           <p>¥<%= item.price.to_s(:delimited) %></p>
         </div>
@@ -20,3 +21,4 @@
   </div>
 </div>
   <%= paginate @items %>
+</div>
