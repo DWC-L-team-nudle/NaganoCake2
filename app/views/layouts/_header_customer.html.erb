@@ -6,6 +6,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto">
+      <% if customer_signed_in? %>
           <%#ようこそ、<%= current_customer.last_name + " " + current_customer.first_name %>さん！
           <li>
             <%= link_to 'マイページ', customers_mypage_path, class: 'nav-link btn btn-outline-secondary mr-2' %>
@@ -19,6 +20,7 @@
           <li>
             <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: 'nav-link btn btn-outline-secondary' %>
           </li>
+      <% end %>
       </ul>
     </div>
   </div>
