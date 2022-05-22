@@ -1,4 +1,5 @@
 class OrderDetail < ApplicationRecord
-  belongs_to :order, dependent: :destroy
-  has_many :items
+  # enum making_status: { impossible: 0, waiting: 1, making: 2, completion: 3 }
+  belongs_to :order
+  belongs_to :item
 end
