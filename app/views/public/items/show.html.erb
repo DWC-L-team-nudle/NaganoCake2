@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-2">
-      <!--%= render 'genre' %>-->
+      <%= render 'genre', genres: @genres %>
     </div>
     <div class="col-4">
       <%= image_tag @item.get_item_image(400,280) %>
