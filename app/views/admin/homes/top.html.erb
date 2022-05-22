@@ -23,7 +23,7 @@
                 <%= order.order_details.inject(0) { |sum, order_detail| sum + order_detail.amount} %>
               </td>
               <td>
-                <%= order.status_i18n %>
+                <%= order.status %> <!--_i18n-->
               </td>
             </tr>
             <% end %>

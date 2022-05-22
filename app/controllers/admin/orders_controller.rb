@@ -3,7 +3,7 @@ class Admin::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @customer = Costomer.find(params[:id])
+    @customer = Customer.find(params[:id])
     @order_detail = @order.order_details.find_by(order_id: @order.id)
   end
 
@@ -17,9 +17,9 @@ class Admin::OrdersController < ApplicationController
     flash[:notice] = "注文ステータスを更新しました"
     redirect_to request.referer
   end
-  
+
   private
-  
+
   def order_params
       params.require(:order).permit(:status)
   end

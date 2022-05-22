@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container pt-3 pb-3">
   <div class="row">
     <div class="col-2">
       <%= render 'genre', genres: @genres %>
     </div>
     <div class="col-4">
-      <%= image_tag @item.get_item_image(400,280) %>
+      <%= image_tag @item.get_item_image(300,200) %>
     </div>
     <div class="col-6">
      <h4><strong><%= @item.name %></strong></h4>

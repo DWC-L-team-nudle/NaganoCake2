@@ -16,7 +16,7 @@ resources :customers, only: [:index,:show,:edit,:update] do
   get 'order_index' => 'customers#order_index'
 end
 resources :items, except: [:destroy]
-resources :genres, except: [:new, :show, :destroy]
+resources :genres, except: [:new, :show]
 resources :orders, only: [:show, :update]
 resources :order_details, only: [:update]
 end
@@ -24,11 +24,10 @@ end
  root to: 'public/homes#top'
  get 'about' =>'public/homes#about'
 
-# 任意のURIへのルーティング変更は後日行います（大場）
  scope module: :public do
  resources :addresses
  get "/customers/mypage" => "customers#show"
- #get "/customers/edit" => "customers#edit"
+ get "/customers/edit" => "customers#edit"
  resources :customers #, except: [:show]
 
  # 退会確認画面＆論理削除用のルーティング
