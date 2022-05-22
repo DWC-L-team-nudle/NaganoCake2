@@ -17,8 +17,6 @@ end
 
 def comfirm
   @order = Order.new(order_params)
-  #@order.order_status = "machi"
-
   if params[:order][:select_address] == "0"
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
