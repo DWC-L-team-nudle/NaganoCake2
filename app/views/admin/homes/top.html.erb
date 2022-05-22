@@ -20,6 +20,7 @@
                 <%= order.customer.last_name + order.customer.first_name %>
               </td>
               <td>
+                <%= order.order_details.inject(0) { |sum, order_detail| sum + order_detail.amount} %>
               </td>
               <td>
                 <%= order.status_i18n %>
