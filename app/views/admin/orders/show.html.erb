@@ -27,8 +27,8 @@
             <tr>
               <td>注文ステータス</td>
               <td>
-                <%= form_with model: @order, url: admin_order_path do |f| %>
-                  <%#= f.select :status, Order.statuses_i18n.invert %>
+                <%= form_with model: @order, url: admin_order_path, method: :patch do |f| %>
+                  <%= f.select :status, Order.statuses_i18n.invert %>
                   <%= f.submit '更新', class: "btn btn-success ml-4" %>
                 <% end %>
               </td>
