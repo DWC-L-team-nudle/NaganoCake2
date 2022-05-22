@@ -4,7 +4,6 @@ class Order < ApplicationRecord
   has_many :items, through: :order_details
 
   enum payment_method: { credit_card: 0, transfer: 1 }
-  # enum making_status: { waiting: 0, payment_confirm: 1, make: 2, ready_to_ship: 3, send: 4 }
 
   with_options presence: true do
     validates :customer_id
