@@ -17,9 +17,9 @@ class Admin::OrdersController < ApplicationController
     flash[:notice] = "注文ステータスを更新しました"
     redirect_to request.referer
   end
-  
+
   private
-  
+
   def order_params
       params.require(:order).permit(:status)
   end
