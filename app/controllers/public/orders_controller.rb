@@ -39,6 +39,16 @@ def comfirm
 
     @cart_items = current_customer.cart_items
     @shopping_fee = 800
+    @order.shopping_fee = @shopping_fee
+    total = 0
+    @cart_items.each do |cart_item|
+
+    cart_item.item.with_tax_price.to_s(:delimited)
+    cart_item.amount
+    cart_item.subtotal.to_s(:delimited)
+    total += cart_item.subtotal
+    end
+    @order.total_payment = total
 end
 
 def create # Order に情報を保存
@@ -52,7 +62,7 @@ def create # Order に情報を保存
       order_detail.item_id = cart_item.item_id
       order_detail.order_id = @order.id
       order_detail.amount = cart_item.amount
-      #order_detail.status =
+      # order_detail.making_status = ""
       order_detail.price = cart_item.item.price
       order_detail.save
     end
@@ -67,7 +77,7 @@ end
 private
 
   def order_params
-    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :shopping_fee, :total_payment)
+    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :shopping_fee, :total_payment, :making_status)
   end
 
 end
