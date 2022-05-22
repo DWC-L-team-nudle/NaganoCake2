@@ -1,6 +1,6 @@
-<div class="container px-5 mx-5">
-  <h3 class="m-3 mini-title">注文履歴一覧</h3>
-    <div class="row-11 mx-5">
+<div class="container">
+  <h3 class="mini-title">注文履歴一覧</h3>
+    <div class="row">
       <table class="table mx-5 table border-bottom table-hover table-background">
         <thead class="thead-light">
           <tr>
@@ -23,7 +23,7 @@
                 <%= order.order_details.inject(0) { |sum, order_detail| sum + order_detail.amount} %>
               </td>
               <td>
-                <%= order.status_i18n %>
+                <%#= order.status_i18n %>
               </td>
             </tr>
             <% end %>
