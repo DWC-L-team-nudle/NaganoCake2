@@ -7,16 +7,16 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto">
           <li>
-            <%= link_to 'About', about_path, class: 'nav-link btn btn-outline-secondary mr-2' %>
+            <%= link_to about_path, class: 'nav-link btn btn-outline-secondary mr-2' do %><i class="fas fa-store-alt"></i>about<% end %>
           </li>
           <li>
-            <%= link_to '商品一覧', items_path, class: 'nav-link btn btn-outline-secondary mr-2' %>
+            <%= link_to items_path, class: 'nav-link btn btn-outline-secondary mr-2' do %><i class="fas fa-birthday-cake"></i>商品一覧<% end %>
           </li>
           <li>
-            <%= link_to '新規登録', new_customer_registration_path, class: 'nav-link btn btn-outline-secondary mr-2' %>
+            <%= link_to new_customer_registration_path, class: 'nav-link btn btn-outline-secondary mr-2' do %><i class="fas fa-user-plus"></i>新規登録<% end %>
           </li>
           <li>
-            <%= link_to 'ログイン', new_customer_session_path, class: 'nav-link btn btn-outline-secondary' %>
+            <%= link_to new_customer_session_path, class: 'nav-link btn btn-outline-secondary' do %><i class="fas fa-sign-in-alt"></i>ログイン<% end %>
           </li>
      </ul>
     </div>

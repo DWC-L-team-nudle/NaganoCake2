@@ -15,21 +15,25 @@
  */
  
  html,body{
-   height: 88%;
+   height: 100%;
+   width: 100%;
  }
  
  main{
     background-image: url(background-sample.jpg);
     background-size: cover;
     background-position: center;
-    height: 100%;
-    width: 100%;
+    height: auto;
+    width: auto;
     }
 
 .mini-title{
   background-color: #B8860B;/*背景色*/
   display: inline-block;
-  padding: 0 10px
+  height: auto;
+  width: auto;
+  padding: 0 10px;
+  margin: 10px;
   }
 
 .card{
@@ -47,6 +51,12 @@
   background-color: rgba(0, 0, 0, 0.4);
   color: #fff;
   }
+
+.image-photo{
+  margin: 0px 20px 10px;
+  display: flex;
+}
+
 
 header{
   background-color: #CD853F;

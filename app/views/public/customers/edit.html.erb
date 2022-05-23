@@ -1,52 +1,48 @@
-<div class="container">
-  <h3>会員情報編集</h3>
+<div class="container py-3">
+ <div class="col-8 mx-2">
+  <h3 class="mini-title">会員情報編集</h3>
     <%= form_with model: @customer, local:true do |f| %>
-      <%= render 'public/shared/error_messages', resource: @customer %>
-      <div class="Namae row">氏名
-        <div class="field">
-          <%= f.text_field :last_name, autocomplete: "family-name" %>
-        </div>
-        <div class="field">
-          <%= f.text_field :first_name, autocomplete: "given-name" %>
-        </div>
-      </div>
-
+    <%= render 'public/shared/error_messages', resource: @customer %>
+     <div class="form-group row">
+      <%= f.label :名前, class: "col-3 " %>
+      <%= f.label :last_name, "(姓)" , class: "col-2" %>
+      <%= f.text_field :last_name, autocomplete: "last-name", class: "form-control col-2" %>
+      <%= f.label :first_name, "(名)", class: "col-2" %>
+      <%= f.text_field :first_name, autocomplete: "first_name-name", class: "form-control col-2" %>
+     </div>
         <!--フリガナ-->
-      <div class="Namae_kana row">フリガナ
-        <div class="field">
-          <%= f.text_field :last_name_kana, autocomplete: "off" %>
-        </div>
-        <div class="field">
-          <%= f.text_field :first_name_kana, autocomplete: "off" %>
-        </div>
-      </div>
-
-        <!--郵便番号-->
-      <div class="field">郵便番号
-        <%= f.text_field :postal_code, autocomplete: "postal-code" %>
-      </div>
-
-        <!--住所-->
-      <div class="field">住所
-        <%= f.text_field :address, autocomplete: "street-address" %>
-      </div>
-
-        <!--電話番号-->
-      <div class="field">電話番号
-        <%= f.text_field :telephone_number, autocomplete: "tel" %>
-      </div>
-
-        <!--メールアドレス-->
-      <div class="field">メールアドレス
-        <%= f.email_field :email, autocomplete: "email" %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "編集内容を保存", class: "btn btn-success" %>
-      </div>
-
-    <!--退会コマンド未実装です-->
-      <div class="actions">
-        <%= link_to "退会する", unsubscribe_path(current_customer), class: "btn btn-danger" %>
-  <% end %>
+     <div class="form-group row">
+      <%= f.label :フリガナ, class: "col-3" %>
+      <%= f.label :last_name_kana, "(セイ)", class: "col-2" %>
+      <%= f.text_field :last_name_kana, autocomplete: "last_name_kana", placeholder: "レイワ", class: "form-control col-2" %>
+      <%= f.label :first_name_kana, "(メイ)", class: "col-2" %>
+      <%= f.text_field :first_name_kana, autocomplete: "first_name_kana", placeholder: "ミチコ", class:"form-control col-2" %>
+     </div>
+<!--メールアドレス-->
+    <div class="form-group row">
+     <%= f.label :email, "メールアドレス", class: "col-5" %>
+     <%= f.email_field :email, autocomplete: "email", placeholder: "sample@example.com", class: "form-control col-4" %>
+    </div>
+    <!--郵便番号-->
+    <div class="form-group row">
+     <%= f.label :postal_code, "郵便番号(ハイフンなし)", class: "col-5" %>
+     <%= f.text_field :postal_code, autocomplete: "postal-code", placeholder: "0000000", class: "form-control col-4" %>
+    </div>
+    <!--住所-->
+    <div class="form-group row">
+     <%= f.label :address, "住所", class:"col-5" %>
+     <%= f.text_field :address, autocomplete: "address", placeholder: "東京都渋谷区代々木神園町0－0", class:"form-control col-4" %>
+    </div>
+    <!--電話番号-->
+    <div class="form-group row">
+     <%= f.label :telephone_number,"電話番号(ハイフンなし)", class: "col-5" %>
+     <%= f.text_field :telephone_number, autocomplete: "tel", placeholder:"0000000000", class:"form-control col-4" %>
+    </div>
+    
+    <div class="actions text-center">
+     <%= f.submit "編集内容を保存", class: "btn btn-success col-4" %>
+     <%= link_to "退会する", unsubscribe_path(current_customer), class: "btn btn-danger col-4" %>
+    <% end %>
+    </div>
+ </div>
 </div>
