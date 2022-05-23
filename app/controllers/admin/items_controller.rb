@@ -22,15 +22,12 @@ class Admin::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.save
-     flash[:notice] = "商品を登録しました"
      redirect_to admin_item_path(@item.id)
   end
 
   def update
     @item = Item.find(params[:id])
     @item.update(item_params)
-    #binding.pry
-     flash[:notice] = "商品情報を更新しました"
      redirect_to admin_item_path(@item)
   end
   
