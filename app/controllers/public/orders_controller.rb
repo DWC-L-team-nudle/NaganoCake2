@@ -36,8 +36,8 @@ def comfirm
   end
 
     @cart_items = current_customer.cart_items
-    @shopping_fee = 800
-    @order.shopping_fee = @shopping_fee
+    @shipping_fee = 800
+    @order.shipping_fee = @shipping_fee
     total = 0
     @cart_items.each do |cart_item|
 
@@ -75,7 +75,7 @@ end
 private
 
   def order_params
-    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :shopping_fee, :total_payment, :making_status)
+    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :shipping_fee, :total_payment, :making_status)
   end
 
 end

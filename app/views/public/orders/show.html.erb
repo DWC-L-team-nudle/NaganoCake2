@@ -40,11 +40,11 @@
             </tr>
             <tr>
               <th>配送料</th>
-              <td>￥<%= @order.shopping_fee %></td>
+              <td>￥<%= @order.shipping_fee %></td>
             </tr>
             <tr>
               <th>ご請求額</th>
-              <td>￥<%= (@order.total_payment + @order.shopping_fee).to_s(:delimited) %></td>
+              <td>￥<%= (@order.total_payment + @order.shipping_fee).to_s(:delimited) %></td>
             </tr>
           <tbody>
         </table>

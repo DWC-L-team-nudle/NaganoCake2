@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(version: 2022_05_19_072452) do
     t.string "name", null: false
     t.text "introduction", null: false
     t.integer "price", null: false
-    t.boolean "is_active", null: false
+    t.boolean "is_active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -123,7 +123,7 @@ ActiveRecord::Schema.define(version: 2022_05_19_072452) do
     t.integer "total_payment", null: false
     t.integer "payment_method", default: 0, null: false
     t.integer "status", default: 0, null: false
-    t.integer "shopping_fee", null: false
+    t.integer "shipping_fee", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

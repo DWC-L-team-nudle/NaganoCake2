@@ -70,11 +70,11 @@
         <table class="table table-borderless">
           <tr>
             <td>商品合計</td>
-            <td><%= (@order.total_payment - @order.shopping_fee).to_s(:delimited) %>円</td>
+            <td><%= (@order.total_payment - @order.shipping_fee).to_s(:delimited) %>円</td>
           </tr>
           <tr>
             <td>送料</td>
-            <td><%= @order.shopping_fee.to_s(:delimited) %>円</td>
+            <td><%= @order.shipping_fee.to_s(:delimited) %>円</td>
           </tr>
           <tr>
             <td>請求金額</td>
