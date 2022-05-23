@@ -13,10 +13,17 @@
  *= require_tree .
  *= require_self
  */
+ 
+ html,body{
+   height: 88%;
+ }
+ 
  main{
     background-image: url(background-sample.jpg);
     background-size: cover;
     background-position: center;
+    height: 100%;
+    width: 100%;
     }
 
 .mini-title{
