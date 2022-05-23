@@ -5,46 +5,46 @@
     <!--thタグにすると太文字に、tdタグにすると細字になります-->
     <div class= "row">　<!--ここで注文情報と請求情報のそれぞれの枠を横並びにしてます-->
       <div class="col-8">  <!--注文情報用の枠を設定してます。注文情報の枠の大きさを変えることで、請求情報の枠との余白部分を作ってます-->
-        <p>注文情報
-        <table class="table table-bordered col-8"><!--注文情報の表の大きさを変えてます。-->
+        <p>注文情報</p>
+        <table class="table table-bordered col-8 text-center"><!--注文情報の表の大きさを変えてます。-->
           <tbody>
             <tr>
-              <th>注文日</th>
-              <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+              <th class="table-danger">注文日</th>
+              <td class="table-warning"><%= @order.created_at.strftime('%Y/%m/%d') %></td>
             </tr>
             <tr>
-              <th>配送先</th>
-              <td><%= @order.postal_code %>
+              <th class="table-danger">配送先</th>
+              <td class="table-warning">〒<%= @order.postal_code %>
                 <br><%= @order.address %>
                 <br><%= @order.name %>
               </td>
             </tr>
             <tr>
-              <th>支払方法</th>
-              <td><%= @order.payment_method_i18n %></td>
+              <th class="table-danger">支払方法</th>
+              <td class="table-warning"><%= @order.payment_method_i18n %></td>
             </tr>
             <tr>
-              <th>注文ステータス</th>
-              <td><%= @order.status_i18n %></td>
+              <th class="table-danger">注文ステータス</th>
+              <td class="table-warning"><%= @order.status_i18n %></td>
             </tr>
           <tbody>
         </table>
       </div>
       <div class="col-3"><!--請求情報用の枠を設定してます。請求情報の枠の大きさを変えてます-->
         <p>請求情報</p>
-        <table class="table table-bordered">
+        <table class="table table-bordered text-center">
           <tbody>
             <tr>
-              <th>商品合計</th>
-              <td>￥<%= (@order.total_payment).to_s(:delimited) %></td>
+              <th class="table-danger">商品合計</th>
+              <td class="table-warning">￥<%= (@order.total_payment).to_s(:delimited) %></td>
             </tr>
             <tr>
-              <th>配送料</th>
-              <td>￥<%= @order.shipping_fee %></td>
+              <th class="table-danger">配送料</th>
+              <td class="table-warning">￥<%= @order.shipping_fee %></td>
             </tr>
             <tr>
-              <th>ご請求額</th>
-              <td>￥<%= (@order.total_payment + @order.shipping_fee).to_s(:delimited) %></td>
+              <th class="table-danger">ご請求額</th>
+              <td class="table-warning">￥<%= (@order.total_payment + @order.shipping_fee).to_s(:delimited) %></td>
             </tr>
           <tbody>
         </table>
@@ -53,9 +53,9 @@
   </div>
   <div class="col-8 mx-auto pb-3"><!--注文内容用の枠を設定してます。注文内容の枠の大きさを変えてます-->
     <p>注文内容</p>
-    <table class="table table-bordered">
+    <table class="table table-bordered text-center">
       <thead>
-        <tr>
+        <tr class="table-danger">
           <th>商品</th>
           <th>単価(税込)</th>
           <th>個数</th>
@@ -64,7 +64,7 @@
       </thead>
       <tbody>
         <% @order.order_details.all.each do |order_detail| %>
-        <tr>
+        <tr class="table-warning">
           <td><%= order_detail.item.name %></td>
           <td>￥<%= order_detail.item.with_tax_price.to_s(:delimited) %></td>
           <td><%= order_detail.amount%> 個</td>

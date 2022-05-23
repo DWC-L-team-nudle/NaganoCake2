@@ -24,16 +24,16 @@
     <% end %>
 
     <% if @addresses.exists? %>
-      <table class='table table-bordered mb-0'>
-        <thead>
-          <tr class="table-background">
+      <table class='table mx-5 table-bordered table-hover text-center mb-0'>
+        <thead class="table-danger">
+          <tr>
             <th>郵便番号</th>
             <th>住所</th>
             <th>宛名</th>
             <th></th>
           </tr>
         </thread>
-        <tbody>
+        <tbody  class="table-warning">
           <% @addresses.each do |address| %>
           <tr>
             <td><%= address.postal_code %></td>
@@ -46,6 +46,8 @@
         </tbody>
       </table>
     <% else %>
-      <p class="mt-4 pb-3 mb-0">登録されている配送先はありません</p>
+    <div class="col-4 mx-auto mt-5">
+      <p class="mt-4 pb-3">ご登録されている配送先はありません</p>
+    </div>
     <% end %>
 </div>
