@@ -12,7 +12,7 @@
         </thead>
         <tbody>
           <% @orders.each do |order| %>
-            <tr>
+            <tr onclick='window.location="<%= '/admin/orders/' + order.id.to_s %>"' role="link">
               <td>
                 <u><%= link_to order.created_at.strftime('%Y/%m/%d %H:%M:%S'), admin_order_path(order.id), class: "text-dark" %></u>
               </td>
@@ -23,11 +23,17 @@
                 <%= order.order_details.inject(0) { |sum, order_detail| sum + order_detail.amount} %>
               </td>
               <td>
-                <%= order.status %> <!--_i18n-->
+                <%= order.status_i18n %>
               </td>
             </tr>
             <% end %>
         </tbody>
       </table>
     </div>
+  <div class="row">
+    <div class="text-center">
+      <%= paginate @orders %>
+    </div>
+  </div>
 </div>
+
