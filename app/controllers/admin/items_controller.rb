@@ -29,8 +29,15 @@ class Admin::ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     @item.update(item_params)
+    #binding.pry
      flash[:notice] = "商品情報を更新しました"
-     redirect_to admin_item_path
+     redirect_to admin_item_path(@item)
+  end
+  
+  def destroy
+   item = Item.find(params[:id])
+   item.delete
+   redirect_to admin_items_path
   end
 
   private

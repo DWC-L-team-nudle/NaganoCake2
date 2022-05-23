@@ -1,23 +1,12 @@
 class Item < ApplicationRecord
-
   has_one_attached :item_image
-
   has_many :orders, through: :order_details
-
   has_many :order_details
   has_many :cart_items, dependent: :destroy
   belongs_to :genre
 
   def with_tax_price
         (price * 1.1).floor
-  end
-
-  with_options presence: true do
-    validates :name
-    validates :introduction
-    validates :price
-    validates :genre_id
-    validates :is_active
   end
 
   def get_item_image(width, height)

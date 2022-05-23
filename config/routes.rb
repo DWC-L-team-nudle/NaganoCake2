@@ -15,7 +15,7 @@ root to: 'homes#top'
 resources :customers, only: [:index,:show,:edit,:update] do
   get 'order_index' => 'customers#order_index'
 end
-resources :items, except: [:destroy]
+resources :items
 resources :genres, except: [:new, :show]
 resources :orders, only: [:show, :update]
 resources :order_details, only: [:update]
