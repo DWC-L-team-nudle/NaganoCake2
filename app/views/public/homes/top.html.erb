@@ -1,7 +1,12 @@
-  <div class="col-6 mx-auto">
+<div class="container">
+<div class="row">
+  <div class="col-3">
+    <%= render 'public/items/genre', genres: @genres %>
+  </div>
+  <div class="col-7">
     <div class= "row d-flex justify-content-center">
       <div class="card-img border border-0 mt-5">
-        <%= image_tag "cake_sample.jpg", width: "800" %>
+        <%= image_tag "cake_sample.jpg", width: "600" %>
       </div>
       <div class="card-img-overlay d-flex align-items-center">
         <p class="greeting-message">ようこそ、ながのCAKEへ！</br>
@@ -11,6 +16,7 @@
       </div>
     </div>
   </div>
+</div>
   <div class="text-center">
     <h3 class="mx-auto col-3 mt-4 ml-5 fw-bold">新着商品</h3>
     <div class="row col-7 mx-auto">
@@ -28,3 +34,4 @@
   <div class="d-flex justify-content-end mr-5 mt-3">
     <%= link_to "すべての商品を見る", items_path %>
   </div>
+</div>
