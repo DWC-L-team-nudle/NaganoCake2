@@ -13,12 +13,12 @@
  *= require_tree .
  *= require_self
  */
- 
+
  html,body{
    height: 100%;
    width: 100%;
  }
- 
+
  main{
     background-image: url(background-sample.jpg);
     background-size: cover;
@@ -81,3 +81,8 @@ footer p{
 .table-background {
   background-color: rgba(0,0,0,0.3);
 }
+
+.search{
+  display: flex;
+  justify-content: flex-end;
+  }

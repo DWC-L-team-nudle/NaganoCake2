@@ -4,7 +4,7 @@ class Admin::OrderDetailsController < ApplicationController
     @order_detail.update(order_detail_params)
     @order = Order.find_by(id: @order_detail.order_id)
     @order_details = @order.order_details
-    flash[:success] = "製作ステータスを変更しました"
+    flash[:notice] = "製作ステータスを変更しました"
     if @order_detail.making_status == "making"
        @order.update_attribute(:status, 2)
        redirect_to request.referer
