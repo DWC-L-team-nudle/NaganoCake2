@@ -11,11 +11,12 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order_details = @order.order_details
     @order.update(order_params)
-    if @order.status == "confirm"
-      @order_details.update_all('making_status = 1')
-    end
     flash[:notice] = "注文ステータスを更新しました"
-    redirect_to request.referer
+      if @order.status == "payment_confirm"
+         @order_details.update_all("making_status = 1")
+      else
+         redirect_to request.referer
+      end
   end
 
   private
