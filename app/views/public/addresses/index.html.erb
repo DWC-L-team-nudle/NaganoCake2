@@ -1,4 +1,4 @@
-<div class="col-8 mx-auto">
+<div class="col-8 mx-auto pb-3">
     <h4 class="mini-title mt-3 mb-2">配送先登録 / 一覧</h4>
 
     <%= form_with model: @address_new, local:true do |f| %>
@@ -24,7 +24,7 @@
     <% end %>
 
     <% if @addresses.exists? %>
-      <table class='table mx-5 table-bordered table-hover text-center mb-0'>
+      <table class='table table-bordered table-hover text-center mb-0'>
         <thead class="table-danger">
           <tr>
             <th>郵便番号</th>
