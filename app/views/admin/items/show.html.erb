@@ -1,29 +1,49 @@
-<div class="container py-5">
+<div class="container py-3">
   <div class="row">
-　　<h3 class="mini-title mb-4">商品詳細</h3>
+　　<h3 class="mini-title mb-3">商品詳細</h3>
   </div>
 <div class="row">
-<div class="col-4">
+<div class="col-5 ml-5">
  <% if @item.item_image.attached? %>
   <%= image_tag @item.get_item_image(200, 200) %>
  <% else %>
   <%= image_tag 'no_image', size: "200x200" %>
  <% end %>
 </div>
-<div>
-  <p>商品名 <%= @item.name %></p>
-  <p>商品説明 <%= @item.introduction %></p>
-  <p>ジャンル <%= @item.genre.name %></p>
-  <p>税込価格(税抜価格)<%= (@item.price * 1.1).floor %>円(<%= @item.price %>円)</p>
-  <p>販売ステータス
-    <% if @item.is_active == true %>
-      販売中
+<div class="col-5">
+<table class="table table-bordered">
+  <tbody>
+  <tr>
+  <th>商品名</th>
+  <td><%= @item.name %></td>
+  </tr>
+  <tr>
+  <th>商品説明</th>
+  <td><%= @item.introduction %></td>
+  </tr>
+  <tr>
+  <th>ジャンル</th>
+  <td><%= @item.genre.name %></td>
+  </tr>
+  <tr>
+  <th>税込価格(税抜価格)</th>
+  <td><%= (@item.price * 1.1).floor %>円(<%= @item.price %>円)</td>
+  </tr>
+  <tr>
+  <th>販売ステータス</th>
+  <td><% if @item.is_active == true %>
+      <b class="text-success">販売中</b>
     <% else %>
-      販売停止中
+      <b class="text-muted">販売停止中</b>
     <% end %>
-  </p>
-  <p><%= link_to "編集する", edit_admin_item_path(@item), class: "btn btn-success" %>
-  <%= link_to "削除する", admin_item_path, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger" %></p>
-</div>
+  </td>
+  </tr>
+  </tbody>
+  </table>
+  <div class="mt-4">
+    <%= link_to "編集する", edit_admin_item_path(@item), class: "btn btn-success" %>
+    <%= link_to "削除する", admin_item_path, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger" %>
+  </div>
+  </div>
 </div>
 </div>

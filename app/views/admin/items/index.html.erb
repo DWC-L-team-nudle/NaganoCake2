@@ -8,7 +8,7 @@
       <% end %>
       </div>
   </div>
-    <div class="row justify-content-cente">
+    <div class="row justify-content-center">
       <div class="col-11">
         <table class="table table-bordered table-hover text-center">
           <thead class="thead">
@@ -29,9 +29,9 @@
                 <td><%= item.genre.name %></td>
                 <td>
                 <% if item.is_active %>
-                <font color="green">販売中</font>
+                <b class="text-success">販売中</font>
                 <% else %>
-                <font color="red">販売停止中</font>
+                <b class="text-muted">販売停止中</font>
                 <% end %>
                 </td>
               </tr>
