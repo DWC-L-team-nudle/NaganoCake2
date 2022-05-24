@@ -24,9 +24,13 @@
               <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link btn btn-outline-secondary' do %><i class="fas fa-sign-out-alt"></i>ログアウト<% end %>
             </li>
           </ul>
-          <div class="search input-group">
-            <input type="text" class="form-control col-3" placeholder="Search">
-            <button class="btn btn-outline-warning" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
+          <div class="search input-group"><!--検索窓-->
+            <%= form_with(url: search_path, local: true, method: :get) do |f| %>
+              <%= f.text_field :word, placeholder: "Search" %>
+              <%= f.button :type => "submit", class: "btn btn-outline-warning" do %>
+                <i class="fas fa-search"></i>
+              <% end %>
+            <% end %>
           </div>
         </div>
       </ul>
