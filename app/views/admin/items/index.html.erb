@@ -1,38 +1,43 @@
-<div class="container py-3">
+<div class="container">
   <div class="row">
-   <h3 class="mini-title">商品一覧</h3>
-    <div class="offset-10">
-      <%= link_to new_admin_item_path do %><i class="fas fa-plus-circle fa-2x mr-3"></i><% end %>
-    </div>
-  
-
-    <table class="table mx-5 table-bordered table-hover text-center">
-      <thead class="table-danger">
-        <tr>
-          <th>商品ID</th>
-          <th>商品名</th>
-          <th>税込価格</th>
-          <th>ジャンル</th>
-          <th>ステータス</th>
-        </tr>
-      </thead>
-      <tbody class="table-warning">
-        <% @items.each do |item| %>
-          <tr>
-            <td><%= item.id %></td>
-            <td><%= link_to item.name, admin_item_path(item) %></td>
-            <td><%= item.price %></td>
-            <td><%= item.genre.name %></td>
-            <td>
-            <% if item.is_active %>
-            <b class="text-success">販売中</b>
-            <% else %>
-            <b class="text-muted">販売停止中</b>
+    <div class="col-3">
+     <div class="mini-title ">商品一覧</div>
+     </div>
+     <div class="offset-7 col-2 mt-4">
+     <%= link_to new_admin_item_path do %><i class="fas fa-plus-circle fa-2x text-right"></i>
+      <% end %>
+      </div>
+  </div>
+    <div class="row justify-content-cente">
+      <div class="col-11">
+        <table class="table table-bordered table-hover text-center">
+          <thead class="thead">
+            <tr>
+              <th>商品ID</th>
+              <th>商品名</th>
+              <th>税込価格</th>
+              <th>ジャンル</th>
+              <th>ステータス</th>
+            </tr>
+          </thead>
+          <tbody class="tbody">
+            <% @items.each do |item| %>
+              <tr>
+                <td><%= item.id %></td>
+                <td><%= link_to item.name, admin_item_path(item) %></td>
+                <td><%= item.price %></td>
+                <td><%= item.genre.name %></td>
+                <td>
+                <% if item.is_active %>
+                <font color="green">販売中</font>
+                <% else %>
+                <font color="red">販売停止中</font>
+                <% end %>
+                </td>
+              </tr>
             <% end %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-  </table>
- </div>
+          </tbody>
+        </table>
+      </div>
+    </div>
 </div>

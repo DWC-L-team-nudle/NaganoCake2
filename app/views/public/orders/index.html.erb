@@ -1,11 +1,13 @@
 <div class="container">
-      <div class="col-8 pt-4">
-        <h3 class="mini-title">注文履歴一覧</h3>
-      </div>
+  <div class="row">
+    <div class="col-3">
+      <div class="mini-title">注文履歴一覧</div>
+    </div>
+  </div>
       <% if @orders.exists? %>
-      <table class="table table-bordered text-center">
-        <thead>
-          <tr class="table-danger">
+      <table class="table table-bordered table-hover text-center">
+        <thead class="thead">
+          <tr>
             <th>注文日</th>
             <th>配送先</th>
             <th>注文商品</th>
@@ -14,7 +16,7 @@
             <th>注文詳細</th>
           </tr>
         </thead>
-        <tbody class="table-warning">
+        <tbody class="tbody">
           <% @orders.each do |order| %>
           <tr>
             <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
@@ -41,6 +43,9 @@
         <%= link_to "商品一覧はこちら！", items_path %>
       </div>
       <% end %>
+      <div class="d-flex justify-content-center">
+      <%= paginate @orders %>
+      </div>
     </div>
   </div>
 </div>

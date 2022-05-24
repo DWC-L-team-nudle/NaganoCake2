@@ -30,7 +30,11 @@
 .mini-title{
   background-color: #B8860B;/*背景色*/
   display: inline-block;
-  padding: 0 10px
+  height: auto;
+  width: auto;
+  padding: 0 10px;
+  margin: 20px;
+  font-size: 24px;
   }
 
 .card{
@@ -69,9 +73,23 @@ footer p{
   display: inline-block;
   }
 
-.table-background {
-  background-color: rgba(0,0,0,0.3);
+.thead {
+  background-color: #f5c6cb;
 }
+
+
+.tbody {
+  background-color: #ffeeba;
+}
+
+td {
+    background-color: #ffeeba;
+  }
+
+th {
+  background-color: #f5c6cb;
+  text-align: center;
+  }
 
 .table {
   border-collapse: separate;
@@ -81,4 +99,3 @@ footer p{
   display: flex;
   justify-content: flex-end;
   }
-

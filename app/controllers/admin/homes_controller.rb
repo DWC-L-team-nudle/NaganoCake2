@@ -3,7 +3,7 @@ class Admin::HomesController < ApplicationController
 
 
  def top
-  @orders = Order.page(params[:page]).per(1)
+  @orders = Order.page(params[:page]).per(10)
  end
 
 end

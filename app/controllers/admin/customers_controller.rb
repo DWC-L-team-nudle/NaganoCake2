@@ -1,6 +1,6 @@
 class Admin::CustomersController < ApplicationController
   before_action :authenticate_admin!
-  
+
   def show
     @customer = Customer.find(params[:id])
   end
@@ -22,10 +22,10 @@ class Admin::CustomersController < ApplicationController
        render :edit
     end
  end
- 
+
  def order_index
     @customer = Customer.find(params[:customer_id])
-    @orders = @customer.orders.order("created_at DESC").page(params[:page]).per(1)
+    @orders = @customer.orders.order("created_at DESC").page(params[:page]).per(10)
  end
 
 
