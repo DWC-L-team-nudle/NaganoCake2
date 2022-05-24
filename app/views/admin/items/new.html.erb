@@ -1,31 +1,33 @@
-<div class="col-8 mx-auto">
-<h4 class="mini-title mt-3">商品新規登録</h4>
- <%= form_with model: @item, url: admin_items_path, method: :post do |f| %>
+<div class="container py-3">
+ <div class="col-8 mx-2">
+  <h3 class="mini-title">商品新規登録</h3>
+   <%= form_with model: @item, url: admin_items_path, method: :post do |f| %>
   <div class="form-group row">
-    <%= f.label :商品画像, class: "col-3" %>
-    <%= f.file_field :item_image, accept: "image/*" %>
+   <%= f.label :商品画像, class: "col-3" %>
+   <%= f.file_field :item_image, accept: "image/*" %>
   </div>
   <div class="form-group row">
-    <%= f.label :商品名, class: "col-3" %>
-    <%= f.text_field :name %>
+   <%= f.label :商品名, class: "col-3" %>
+   <%= f.text_field :name %>
   </div>
   <div class="form-group row">
-    <%= f.label :商品説明, class: "col-3" %>
-    <%= f.text_area :introduction %>
+   <%= f.label :商品説明, class: "col-3" %>
+   <%= f.text_area :introduction %>
   </div>
   <div class="form-group row">
-    <%= f.label :ジャンル, class: "col-3" %>
-    <%= f.collection_select(:genre_id, @genres, :id, :name, {prompt: "--選択してください--"}) %>
+   <%= f.label :ジャンル, class: "col-3" %>
+   <%= f.collection_select(:genre_id, @genres, :id, :name, {prompt: "--選択してください--"}) %>
   </div>
   <div class="form-group row">
-    <%= f.label :税抜価格, class: "col-3" %>
-    <%= f.text_field :price %>円
+   <%= f.label :税抜価格, class: "col-3" %>
+   <%= f.text_field :price %>円
   </div>
   <div class="form-group row pb-3 mb-0">
-    <%= f.label :販売ステータス, class: "col-3" %>
-    <%= f.radio_button :is_active, :true %>販売中
-    <%= f.radio_button :is_active, :false %>販売停止中
-    <%= f.submit "新規登録", class:"btn btn-success offset-6" %>
+   <%= f.label :販売ステータス, class: "col-3" %>
+   <%= f.radio_button :is_active, :true %>販売中
+   <%= f.radio_button :is_active, :false %>販売停止中
+   <%= f.submit "新規登録", class:"btn btn-success offset-6" %>
   </div>
-<% end %>
+   <% end %>
+ </div>
 </div>

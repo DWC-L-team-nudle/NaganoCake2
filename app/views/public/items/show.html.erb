@@ -1,20 +1,21 @@
-<div class="container pt-3 pb-3">
-  <div class="row">
-    <div class="col-2">
-      <%= render 'genre', genres: @genres %>
-    </div>
-    <div class="col-4">
-      <%= image_tag @item.get_item_image(300,200) %>
-    </div>
-    <div class="col-6">
-     <h4><strong><%= @item.name %></strong></h4>
-     <p><%= @item.introduction %></p>
-     <span>￥<%= @item.with_tax_price.to_s(:delimited) %>（税込）</span>
-        <%= form_with model: @cart_item, url: cart_items_path do |f| %>
-          <p><%= f.select :amount, *[1..10], include_blank: '個数選択' %></p>
-          <%= f.hidden_field :item_id, :value => @item.id %>
-          <%= f.submit "カートに入れる", class: "btn btn-success" %>
-         <% end %>
-    </div>
+<div class="container py-3">
+ <div class="row">
+  <div class="col-2">
+    <%= render 'genre', genres: @genres %>
   </div>
+  <div class="col-4">
+   <%= image_tag @item.get_item_image(300,200) %>
+  </div>
+  <div class="col-5">
+   <h3><strong><%= @item.name %></strong></h3>
+   <h4><%= @item.introduction %></h4>
+   <h4><strong>￥<%= @item.with_tax_price.to_s(:delimited) %>（税込）</strong></h4>
+    <%= form_with model: @cart_item, url: cart_items_path do |f| %>
+   </br>
+   <h5><%= f.select :amount, *[1..10], include_blank: '個数選択' %>
+       <%= f.hidden_field :item_id, :value => @item.id %>
+       <%= f.submit "カートに入れる", class: "btn btn-success" %></h5>
+    <% end %>
+  </div>
+ </div>
 </div>
