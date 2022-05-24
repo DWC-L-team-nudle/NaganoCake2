@@ -13,11 +13,11 @@
  *= require_tree .
  *= require_self
  */
- 
+
  html,body{
    height: 88%;
  }
- 
+
  main{
     background-image: url(background-sample.jpg);
     background-size: cover;
@@ -76,3 +76,9 @@ footer p{
 .table {
   border-collapse: separate;
 }
+
+.search{
+  display: flex;
+  justify-content: flex-end;
+  }
+

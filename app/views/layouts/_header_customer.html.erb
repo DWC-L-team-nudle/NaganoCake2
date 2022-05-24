@@ -6,23 +6,29 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto">
-      <% if customer_signed_in? %>
-          <div class="pt-2 mr-5">
-            ようこそ、<%= current_customer.last_name + " " + current_customer.first_name %>さん！
+        <div class="my-auto mr-4">
+          ようこそ、<%= current_customer.last_name + " " + current_customer.first_name %>さん！
+        </div>
+        <div class="menu">
+          <ul class="navbar-nav mb-2">
+            <li>
+              <%= link_to customers_mypage_path, class: 'nav-link btn btn-outline-secondary mr-2' do %><i class="fas fa-house-user"></i>マイページ<% end %>
+            </li>
+            <li>
+              <%= link_to items_path, class: 'nav-link btn btn-outline-secondary mr-2' do %><i class="fas fa-birthday-cake"></i>商品一覧<% end %>
+            </li>
+            <li>
+              <%= link_to cart_items_path, class: 'nav-link btn btn-outline-secondary mr-2' do %><i class="fas fa-cart-arrow-down"></i>カート<% end %>
+            </li>
+            <li>
+              <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link btn btn-outline-secondary' do %><i class="fas fa-sign-out-alt"></i>ログアウト<% end %>
+            </li>
+          </ul>
+          <div class="search input-group">
+            <input type="text" class="form-control col-3" placeholder="Search">
+            <button class="btn btn-outline-warning" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
           </div>
-          <li>
-            <%= link_to customers_mypage_path, class: 'nav-link btn btn-outline-secondary mr-2' do %><i class="fas fa-house-user"></i>マイページ<% end %>
-          </li>
-          <li>
-            <%= link_to items_path, class: 'nav-link btn btn-outline-secondary mr-2' do %><i class="fas fa-birthday-cake"></i>商品一覧<% end %>
-          </li>
-          <li>
-            <%= link_to cart_items_path, class: 'nav-link btn btn-outline-secondary mr-2' do %><i class="fas fa-cart-arrow-down"></i>カート<% end %>
-          </li>
-          <li>
-            <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link btn btn-outline-secondary' do %><i class="fas fa-sign-out-alt"></i>ログアウト<% end %>
-          </li>
-      <% end %>
+        </div>
       </ul>
     </div>
   </div>
