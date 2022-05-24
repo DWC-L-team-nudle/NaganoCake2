@@ -22,14 +22,24 @@ def comfirm
       @order.address = current_customer.address
       @order.name = current_customer.last_name + current_customer.first_name
   elsif params[:order][:select_address] == "1"
+    unless current_customer.addresses.exists?
+      flash.now[:notice] = "登録済みの住所がありません"
+      render "new"
+    else
       @address = Address.find(params[:order][:address_id])
       @order.postal_code = @address.postal_code
       @order.address = @address.address
       @order.name = @address.name
+    end
   elsif params[:order][:select_address] == "2"
+    if ( params[:order][:postal_code] || params[:order][:address] || params[:order][:name] ).empty?
+        flash.now[:notice] = "新しいお届け先に空欄があります"
+        render "new"
+    else
       @order.postal_code = params[:order][:postal_code]
       @order.address = params[:order][:address]
       @order.name = params[:order][:name]
+    end
   else
     flash.now[:notice] = "住所を選択してください"
     render "new"
@@ -60,7 +70,6 @@ def create # Order に情報を保存
       order_detail.item_id = cart_item.item_id
       order_detail.order_id = @order.id
       order_detail.amount = cart_item.amount
-      # order_detail.making_status = ""
       order_detail.price = cart_item.item.price
       order_detail.save
     end
@@ -75,7 +84,7 @@ end
 private
 
   def order_params
-    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :shipping_fee, :total_payment, :making_status)
+    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :shipping_fee, :total_payment)
   end
 
 end
