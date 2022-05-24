@@ -13,19 +13,20 @@
  *= require_tree .
  *= require_self
  */
- 
- html,body{
-   height: 100%;
-   width: 100%;
- }
+.layouts{
+  min-height: 100vh;
+  position: relative;
+}
  
  main{
     background-image: url(background-sample.jpg);
     background-size: cover;
     background-position: center;
-    height: auto;
-    width: auto;
+    padding-bottom: 120px;
+    width: 100%;
     }
+ 
+
 
 .mini-title{
   background-color: #B8860B;/*背景色*/

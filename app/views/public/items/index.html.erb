@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container py-3">
   <div class="row">
-    <div class="col-3">
+    <div class="col-2 px-2">
       <%= render 'genre', genres: @genres %>
     </div>
     <div class="col-8">
@@ -12,7 +12,7 @@
         <div class="col-4 text-center">
           <%= link_to item_path(item) do %>
             <%= image_tag item.get_item_image(210,150) %>
-            <p><%= item.name %></p>
+            <%= item.name %>
             <% end %>
           <p>¥<%= item.price.to_s(:delimited) %></p>
         </div>
