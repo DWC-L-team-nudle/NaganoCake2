@@ -2,13 +2,12 @@ class Public::AddressesController < ApplicationController
   before_action :authenticate_customer!
 
   def index
-    customer = Customer.find_by(params[:customer_id])
-    @addresses = customer.addresses
+    @addresses = Address.where(customer_id: current_customer.id)
     @address_new = Address.new
   end
 
   def create
-    @customer = Customer.find_by(params[:customer_id])
+    @customer = current_customer
     @address_new = Address.new(address_params)
     @address_new.customer_id = @customer.id
     if @address_new.save

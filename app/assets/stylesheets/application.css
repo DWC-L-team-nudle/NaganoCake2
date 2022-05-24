@@ -13,16 +13,16 @@
  *= require_tree .
  *= require_self
  */
-.layouts{
-  min-height: 100vh;
-  position: relative;
-}
- 
+
+ html,body{
+   height: 88%;
+ }
+
  main{
     background-image: url(background-sample.jpg);
     background-size: cover;
     background-position: center;
-    padding-bottom: 120px;
+    height: 100%;
     width: 100%;
     }
  
@@ -34,7 +34,8 @@
   height: auto;
   width: auto;
   padding: 0 10px;
-  margin: 10px;
+  margin: 20px;
+  font-size: 24px;
   }
 
 .card{
@@ -52,12 +53,6 @@
   background-color: rgba(0, 0, 0, 0.4);
   color: #fff;
   }
-
-.image-photo{
-  margin: 0px 20px 10px;
-  display: flex;
-}
-
 
 header{
   background-color: #CD853F;
@@ -79,6 +74,29 @@ footer p{
   display: inline-block;
   }
 
-.table-background {
-  background-color: rgba(0,0,0,0.3);
+.thead {
+  background-color: #f5c6cb;
 }
+
+
+.tbody {
+  background-color: #ffeeba;
+}
+
+td {
+    background-color: #ffeeba;
+  }
+
+th {
+  background-color: #f5c6cb;
+  text-align: center;
+  }
+
+.table {
+  border-collapse: separate;
+}
+
+.search{
+  display: flex;
+  justify-content: flex-end;
+  }
