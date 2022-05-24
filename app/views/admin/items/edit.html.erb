@@ -9,7 +9,7 @@
    <%= form_with model: @item, url: admin_item_path(@item), method: :patch do |f| %>
   </div>
   <div class="row form-group">
-     <%= f.label :商品画像 %>
+     <%= f.label :商品画像, class: "col-3"%>
      <%= f.file_field :item_image, accept: "image/*" %>
   </div>
   <div class="row form-group">
@@ -29,17 +29,13 @@
     <%= f.text_field :price %>円
   </div>
   <div class="row form-group">
-    <%= f.label :is_active, "販売ステータス", class: "col-3"%>
-    <div class="custom-control custom-radio">
-    <%= f.radio_button :is_active, true %>
-    <%= f.label :is_active, "販売中", class: "mr-3" %>
-    <%= f.radio_button :is_active, false %>
-    <%= f.label :is_active, "販売停止中", class: "mr-3" %>
-    </div>
+    <%= f.label :販売ステータス, class: "col-3"%>
+    <%= f.radio_button :is_active, true %>販売中
+    <%= f.radio_button :is_active, false %>販売停止中
   </div>
   <div class="actions mb-5 mt-5">
      <%= f.submit "変更を保存", class: "btn btn-success" %>
   </div>
    <% end %>
-  </div>
+   </div>
  </div>
