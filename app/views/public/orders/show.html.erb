@@ -36,15 +36,15 @@
           <tbody>
             <tr>
               <th class="table-danger">商品合計</th>
-              <td class="table-warning">￥<%= (@order.total_payment).to_s(:delimited) %></td>
+              <td class="table-warning"><%= (@order.total_payment).to_s(:delimited) %>円</td>
             </tr>
             <tr>
               <th class="table-danger">配送料</th>
-              <td class="table-warning">￥<%= @order.shipping_fee %></td>
+              <td class="table-warning"><%= @order.shipping_fee %>円</td>
             </tr>
             <tr>
               <th class="table-danger">ご請求額</th>
-              <td class="table-warning">￥<%= (@order.total_payment + @order.shipping_fee).to_s(:delimited) %></td>
+              <td class="table-warning"><%= (@order.total_payment + @order.shipping_fee).to_s(:delimited) %>円</td>
             </tr>
           <tbody>
         </table>
@@ -66,9 +66,9 @@
         <% @order.order_details.all.each do |order_detail| %>
         <tr class="table-warning">
           <td><%= order_detail.item.name %></td>
-          <td>￥<%= order_detail.item.with_tax_price.to_s(:delimited) %></td>
+          <td><%= order_detail.item.with_tax_price.to_s(:delimited) %>円</td>
           <td><%= order_detail.amount%> 個</td>
-          <td>￥<%= (order_detail.item.with_tax_price*order_detail.amount).to_s(:delimited)  %></td>
+          <td><%= (order_detail.item.with_tax_price*order_detail.amount).to_s(:delimited) %>円</td>
         </tr>
         <% end %>
       </tbody>
