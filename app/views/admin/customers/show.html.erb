@@ -50,15 +50,8 @@
       </tr>
     </tbody>
   </table>
-<div class="ml-5 mt-5">
+ <div class="ml-5 mt-5">
   <%= link_to "編集する", edit_admin_customer_path(params[:id]), class: "btn btn-success mr-3" %>
   <%= link_to "#{@customer.last_name + @customer.first_name}さんの注文履歴一覧を見る", admin_customer_order_index_path(@customer), class: "btn btn-primary" %>
+ </div>
 </div>
-
-<%
-=begin
-%>
-  注文履歴のリンクはとりあえず会員一覧ページにしていますが、会員ごとの注文履歴を作ったら変えます
-<%
-=end
-%>
