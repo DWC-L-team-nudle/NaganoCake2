@@ -1,6 +1,6 @@
 <div class="container py-3">
   <div class="row">
-   <h3 class="mini-title ">商品一覧</h3>
+   <h3 class="mini-title">商品一覧</h3>
     <div class="offset-10">
       <%= link_to new_admin_item_path do %><i class="fas fa-plus-circle fa-2x mr-3"></i><% end %>
     </div>
@@ -25,9 +25,9 @@
             <td><%= item.genre.name %></td>
             <td>
             <% if item.is_active %>
-            <font color="green">販売中</font>
+            <b class="text-success">販売中</b>
             <% else %>
-            <font color="red">販売停止中</font>
+            <b class="text-muted">販売停止中</b>
             <% end %>
             </td>
           </tr>

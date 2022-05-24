@@ -1,11 +1,14 @@
-<div class="container">
+<div class="container py-3">
  <div class="row">
-  <h4>ジャンル編集</h4>
+  <h3 class="mini-title">ジャンル編集</h3>
  </div>
-  <p>ジャンル名</p>
+ 
+ <div class="row pt-4">
    <%= form_with model: @genre, url: admin_genre_path(@genre), method: :patch do |f| %>
+   <%= f.label :ジャンル名 %>
    <%= f.text_field :name %>
    <%= f.submit "変更を保存" ,class: "btn btn-primary" %>
    <%= link_to "削除する", admin_genre_path, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger" %>
    <% end %>
+ </div>
 </div>
