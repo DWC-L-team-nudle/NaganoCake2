@@ -5,7 +5,7 @@
     </div>
     <div class="col-8">
       <div class="row">
-        <h3 class="mini-title mt-3">商品一覧（全<%= @items.count %>件)</h3>
+        <div class="mini-title mt-3">商品一覧（全<%= @items.count %>件)</div>
       </div>
       <div class="row mx-auto">
         <% @items.each do |item| %>
@@ -20,5 +20,7 @@
     </div>
   </div>
 </div>
-  <%#= paginate @items %>
+  <div class="d-flex justify-content-center">
+    <%= paginate @items %>
+  </div>
 </div>

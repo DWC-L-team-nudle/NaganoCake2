@@ -1,45 +1,45 @@
-<div class="container px-5 mx-5">
-  <h3 class="m-3 mini-title">
-    <%= @customer.last_name + @customer.first_name %>さんの会員詳細
-  </h3>
-
-<div class="row px-5 mx-5 table-borderless col-6">
-  <table class="table">
+<div class="container">
+  <div class="row">
+    <div class="mini-title">
+      <%= @customer.last_name + @customer.first_name %>さんの会員詳細
+    </div>
+  </div>
+  <table class="table table-bordered col-8 ml-5">
     <tbody>
       <tr>
-        <td>会員ID</td>
+        <th class="col-4 text-center">会員ID</th>
         <td><%= @customer.id %></td>
       </tr>
       <tr>
-        <td>氏名</td>
+        <th class="col-4 text-center">氏名</th>
         <td>
           <%= @customer.last_name + " " + @customer.first_name %>
         </td>
       </tr>
       <tr>
-        <td>フリガナ</td>
+        <th class="col-4 text-center">フリガナ</th>
         <td>
           <%= @customer.last_name_kana + " " + @customer.first_name_kana%>
         </td>
       </tr>
       <tr>
-        <td>郵便番号</td>
+        <th class="col-4 text-center">郵便番号</th>
         <td><%= @customer.postal_code %></td>
       </tr>
       <tr>
-        <td>住所</td>
+        <th class="col-4 text-center">住所</th>
         <td><%= @customer.address %></td>
       </tr>
       <tr>
-        <td>電話番号</td>
+        <th class="col-4 text-center">電話番号</th>
         <td><%= @customer.telephone_number %></td>
       </tr>
       <tr>
-        <td>メールアドレス</td>
+        <th class="col-4 text-center">メールアドレス</th>
         <td><%= @customer.email %></td>
       </tr>
       <tr>
-        <td>会員ステータス</td>
+        <th class="col-4 text-center">会員ステータス</th>
         <td>
           <% if @customer.active_for_authentication? %>
             <b class="text_success">有効</b>
@@ -50,8 +50,6 @@
       </tr>
     </tbody>
   </table>
-</div>
-
 <div class="ml-5 mt-5">
   <%= link_to "編集する", edit_admin_customer_path(params[:id]), class: "btn btn-success mr-3" %>
   <%= link_to "#{@customer.last_name + @customer.first_name}さんの注文履歴一覧を見る", admin_customer_order_index_path(@customer), class: "btn btn-primary" %>

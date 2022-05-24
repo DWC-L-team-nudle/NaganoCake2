@@ -2,7 +2,7 @@ class Public::OrdersController < ApplicationController
 
 def index
   customer = current_customer
-  @orders = customer.orders.order(created_at: :desc)
+  @orders = customer.orders.order(created_at: :desc).page(params[:page]).per(5)
 end
 
 def show

@@ -1,7 +1,6 @@
 class Public::ItemsController < ApplicationController
   def index
-    @items = Item.where(is_active: 1)
-    # @items = Item.page(params[:page]) #config/initializers/kaminari_config.rbに表示件数の指定必要(デフォルトは25件)
+    @items = Item.where(is_active: 1).page(params[:page]).per(9)
     @genres = Genre.all
   end
 
