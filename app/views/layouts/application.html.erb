@@ -12,21 +12,23 @@
   </head>
 
   <body>
-    <header>
-    <% if current_customer == nil && current_admin == nil %>
-      <%= render 'layouts/header_visitor' %>
-    <% elsif current_customer == nil && current_admin.present? %>
-      <%= render 'layouts/header_admin' %>
-    <% else current_customer == true && current_admin == nil %>
-      <%= render 'layouts/header_customer' %>
-    <% end %>
-    </header>
-    <main class="mb-0">
-      <div><%=render "layouts/notice" %></div>
-      <%= yield %>
-    </main>
-    <footer>
-      <%= render "layouts/footer" %>
-    </footer>
+    <div class="viewer">
+      <header>
+      <% if current_customer == nil && current_admin == nil %>
+        <%= render 'layouts/header_visitor' %>
+      <% elsif current_customer == nil && current_admin.present? %>
+        <%= render 'layouts/header_admin' %>
+      <% else current_customer == true && current_admin == nil %>
+        <%= render 'layouts/header_customer' %>
+      <% end %>
+      </header>
+      <main class="mb-0">
+        <div><%=render "layouts/notice" %></div>
+        <%= yield %>
+      </main>
+      <footer>
+        <%= render "layouts/footer" %>
+      </footer>
+    </div>
   </body>
 </html>

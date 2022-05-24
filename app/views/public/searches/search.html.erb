@@ -4,8 +4,7 @@
       <%= render 'public/items/genre', genres: @genres %>
     </div>
      <div class="col-8">
-      <div class="row">
-        <h4 class="mini-title">検索結果</h4>
+          <h4 class="mini-title">【<%= @word %>】の検索結果</h4>
         <% if @items.exists? %>
           <div class="row mx-auto">
           <% @items.each do |item| %>
@@ -22,7 +21,9 @@
             <%= paginate @items %>
           </div>
         <% else %>
-          <h4>お探しの商品はありません。</h4>
+          <div class=>
+            <h4>お探しの商品はありません。</h4>
+          </div>
         <% end %>
       </div>
     </div>

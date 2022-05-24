@@ -1,9 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="col-3">
-     <div class="mini-title">検索結果</div>
-     </div>
+     <h4 class="mini-title">【<%= @word %>】の検索結果</h4>
   </div>
+  <% if @items.exists? %>
     <div class="row justify-content-cente">
       <div class="col-11">
         <table class="table table-bordered table-hover text-center">
@@ -39,4 +38,7 @@
   <div class="d-flex justify-content-center">
     <%= paginate @items %>
   </div>
+  <% else %>
+    <h4>お探しの商品はありません。</h4>
+  <% end %>
 </div>

@@ -17,20 +17,22 @@
   </div>
  </div>
   <div class="row">
-   <h3 class="title py-3 col-12"><strong>新着商品</strong></h3>
+   <h3 class="title py-3 col-9 mx-auto"><strong>新着商品</strong></h3>
   </div>
   <div class="row">
    <div class="d-flex mx-auto">
     <% @items.each do |item| %>
-    <%= link_to item_path(item) do %>
-    <div><%= image_tag item.get_item_image(170,130) %></div>
-    <div><%= item.name %></div>
-    <div>¥<%= item.price.to_s(:delimited) %></div>
-    <% end %>
+    <div class="top-item">
+     <%= link_to item_path(item) do %>
+      <div><%= image_tag item.get_item_image(170,130) %></div>
+      <div><%= item.name %></div>
+      <div>¥<%= item.price.to_s(:delimited) %></div>
+     <% end %>
+    </div>
     <% end %>
    </div>
   </div>
-  <div class="row">
+  <div class="row offset-9">
     <%= link_to "すべての商品を見る>", items_path %>
    </div>
   </div>
