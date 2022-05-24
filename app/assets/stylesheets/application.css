@@ -22,10 +22,11 @@
     background-image: url(background-sample.jpg);
     background-size: cover;
     background-position: center;
-    
     height: 100%;
     width: 100%;
     }
+ 
+
 
 .mini-title{
   background-color: #B8860B;/*背景色*/
