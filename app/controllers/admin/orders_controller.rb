@@ -3,7 +3,7 @@ class Admin::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @customer = Customer.find(params[:id])
+    @customer = Customer.find_by(id: @order.customer_id)
     @order_detail = @order.order_details.find_by(order_id: @order.id)
   end
 
@@ -11,12 +11,11 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order_details = @order.order_details
     @order.update(order_params)
-    flash[:notice] = "注文ステータスを更新しました"
       if @order.status == "payment_confirm"
          @order_details.update_all("making_status = 1")
-      else
-         redirect_to request.referer
       end
+    flash[:notice] = "注文ステータスを更新しました"
+    redirect_to request.referer
   end
 
   private
