@@ -12,7 +12,7 @@
         <div class="col-4 text-center">
           <%= link_to item_path(item) do %>
             <%= image_tag item.get_item_image(210,150) %>
-            <%= item.name %></p>
+            <p><%= item.name %></p>
             <% end %>
           <p>¥<%= item.price.to_s(:delimited) %></p>
         </div>

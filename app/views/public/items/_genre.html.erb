@@ -1,14 +1,10 @@
-<table class="mt-3 col-7 text-center table-bordered">
-  <thead class="table-danger">
-   <tr>
-    <th style="height:40px;">ジャンル一覧</th>
-   </tr>
-  </thead>
- <tbody class="table-warning">
-   <% genres.each do |genre| %>
-    <tr>
-     <td style="height:40px;"><%= genre.name %></td>
-    </tr>
-   <% end %>
-  </tbody>
- </table>
+<div class="card mt-4" style="width: 12rem;">
+  <h6 class="card-header text-center font-weight-bold">ジャンル一覧</h6>
+   <div class="card-body">
+    <% genres.each do |genre| %>
+     <div class="my-2">
+      <%= genre.name %>
+     </div>
+    <% end %>
+  </div>
+ </div>
