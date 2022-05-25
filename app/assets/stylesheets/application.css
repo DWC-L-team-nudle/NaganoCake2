@@ -14,18 +14,28 @@
  *= require_self
  */
 
- html,body{
-   height: 88%;
+ body {
+  background-image: url(background-sample.jpg);
+}
+
+ .viewer{
+  min-height: 100vh;
  }
 
+ header{
+   background-color: #CD853F;
+  }
+
  main{
-    background-image: url(background-sample.jpg);
     background-size: cover;
     background-position: center;
-    height: 100%;
-    width: 100%;
+    min-height:  calc(100vh - 282px);
     }
- 
+
+footer{
+  width: 100%;
+  background-color: #CD853F;
+  }
 
 
 .mini-title{
@@ -52,14 +62,6 @@
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.4);
   color: #fff;
-  }
-
-header{
-  background-color: #CD853F;
-  }
-
-footer{
-  background-color: #CD853F;
   }
 
 footer p{
@@ -100,3 +102,9 @@ th {
   display: flex;
   justify-content: flex-end;
   }
+
+ .top-item{
+  width: 175px;
+  height: 175px;
+  text-align: center;
+ }
