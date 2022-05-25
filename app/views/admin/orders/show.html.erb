@@ -54,9 +54,9 @@
             <% @order.order_details.all.each do |order_detail| %>
               <tr>
                 <td class="align-middle"><%= order_detail.item.name %></td>
-                <td class="align-middle"><%= (order_detail.item.price).to_s(:delimited) %>円</td>
+                <td class="align-middle"><%= (order_detail.item.with_tax_price).to_s(:delimited) %>円</td>
                 <td class="align-middle"><%= order_detail.amount %> 個</td>
-                <td class="align-middle"><%= (order_detail.item.price*order_detail.amount).to_s(:delimited) %>円</td>
+                <td class="align-middle"><%= (order_detail.item.with_tax_price*order_detail.amount).to_s(:delimited) %>円</td>
                 <td class="align-middle"><%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch do |f| %>
                       <%= f.select :making_status, OrderDetail.making_statuses_i18n.invert %>
                       <%= f.submit '更新', class: "btn btn-success ml-2" %>
