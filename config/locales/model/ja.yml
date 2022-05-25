@@ -1,0 +1,26 @@
+activerecord:  　　　　　　　# attributes:の直下に
+    address: "配送先"
+      name: "宛名"
+      postal_code: "郵便番号"
+      address: "配送先住所"
+    customer: "会員"  　　　　　　　　　 # モデル名を指定し
+      email: "メールアドレス"   　　　　　# カラム名を指定する。
+　　  last_name: "名前"
+　　  first_name: "苗字"
+　　  last_name_kana: "フリガナ(名前)"
+　　  first_name_kana: "フリガナ(ミョウジ)"
+　　  postal_code: "郵便番号"
+　　  address: "住所"
+　　  telephone_number: "電話番号"
+　　  password: "パスワード"
+　　genre: "ジャンル"
+　　  name: "ジャンル名"
+　　item: "商品"
+　　  name: "商品名"
+　　  introduction: "説明文"
+　　  price: "価格"
+　　order: "ご注文"
+　　  name: "宛名"
+　　  address: "配送先住所"
+　　  postal_code : "郵便番号"
+
