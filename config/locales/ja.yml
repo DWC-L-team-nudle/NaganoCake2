@@ -23,6 +23,33 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    model:
+      customer: 会員
+      genre: ジャンル
+      item: 商品
+      order: 注文
+    attributes:
+      customer:
+        email: メールアドレス
+        last_name: 名前
+        first_name: 苗字
+        last_name_kana: フリガナ(名前)
+        first_name_kana: フリガナ(苗字)
+        postal_code: 郵便番号
+        address: 住所
+        telephone_number: 電話番号
+        password: パスワード
+      genre:
+        name: ジャンル名
+      item:
+        name: 商品名
+        introduction: 説明文
+        price: 価格
+        genre: ジャンル
+      order:
+        name: 宛名
+        address: 配送先住所
+        postal_code : 郵便番号
   date:
     abbr_day_names:
     - 日
@@ -135,7 +162,7 @@ ja:
       greater_than: は%{count}より大きい値にしてください
       greater_than_or_equal_to: は%{count}以上の値にしてください
       inclusion: は一覧にありません
-      invalid: は不正な値です
+      invalid: を正しく入力してください
       less_than: は%{count}より小さい値にしてください
       less_than_or_equal_to: は%{count}以下の値にしてください
       model_invalid: 'バリデーションに失敗しました: %{errors}'
