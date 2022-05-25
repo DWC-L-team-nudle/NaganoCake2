@@ -1,12 +1,12 @@
-<div class="container py-3">
- <div class="row">
+<div class="row">
    <div class="card">
     <h6 class="card-header text-center">ジャンル一覧</h6>
-     <div class="card-body text-center">
+     <div class="card-body">
+      <div class="card-text" style="line-height:2.5rem; text-align:center">
       <% genres.each do |genre| %>
-      <%= genre.name %>
+      <%= genre.name %></br>
       <% end %>
+      </div>
      </div>
    </div>
  </div>
-</div>

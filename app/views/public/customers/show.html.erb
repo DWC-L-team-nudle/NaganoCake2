@@ -7,44 +7,47 @@
     <div>
     <h4 class="title ml-5">登録情報</h4>
     </div>
-    <table class="table table-bordered col-7 ml-5">
-    <tbody>
-      <tr>
-        <th class="col-4 text-center">氏名</th>
-        <td><%= @customer.last_name%>　<%= @customer.first_name %></td>
-      </tr>
-      <tr>
-        <th class="col-4 text-center">カナ</th>
-        <td><%= @customer.last_name_kana%>　<%= @customer.first_name_kana %></td>
-      </tr>
-      <tr>
-        <th class="col-4 text-center">郵便番号</th>
-        <td><%= @customer.postal_code %></td>
-      </tr>
-      <tr>
-        <th class="col-4 text-center">住所</th>
-        <td><%= @customer.address %></td>
-      </tr>
-      <tr>
-        <th class="col-4 text-center">電話番号</th>
-        <td><%= @customer.telephone_number %></td>
-      </tr>
-      <tr>
-        <th class="col-4 text-center">メールアドレス</th>
-        <td><%= @customer.email %></td>
-      </tr>
-    <tbody>
-  </table>
+    <div class="row">
+      <div class="col-8">
+    <table class="table table-bordered ml-5">
+      <tbody>
+        <tr>
+          <th class="col-4 text-center">氏名</th>
+          <td><%= @customer.last_name%>　<%= @customer.first_name %></td>
+        </tr>
+        <tr>
+          <th class="col-4 text-center">カナ</th>
+          <td><%= @customer.last_name_kana%>　<%= @customer.first_name_kana %></td>
+        </tr>
+        <tr>
+          <th class="col-4 text-center">郵便番号</th>
+          <td><%= @customer.postal_code %></td>
+        </tr>
+        <tr>
+          <th class="col-4 text-center">住所</th>
+          <td><%= @customer.address %></td>
+        </tr>
+        <tr>
+          <th class="col-4 text-center">電話番号</th>
+          <td><%= @customer.telephone_number %></td>
+        </tr>
+        <tr>
+          <th class="col-4 text-center">メールアドレス</th>
+          <td><%= @customer.email %></td>
+        </tr>
+      <tbody>
+    </table>
+    </div>
+    </div>
     <div class="text-center">
      <%= link_to "編集する", edit_customer_path(current_customer), class:"btn btn-success col-2" %>
     </div>
     <div class="row">
       <div class="col-8 mx-2 ml-5">
-        <h4 class="title">配送先 
+        <h4 class="title">配送先
         <%= link_to "一覧を見る", addresses_path, class:"btn btn-primary ml-4" %></h4>
         <h4 class="title">注文履歴
         <%= link_to "一覧を見る", orders_path, class:"btn btn-primary" %></h4>
       </div>
-  </div>
   </div>
 </div>

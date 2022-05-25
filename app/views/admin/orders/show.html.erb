@@ -1,7 +1,7 @@
 <div class="container py-3">
   <div class="row">
     <h3 class="mini-title mb-3">注文履歴詳細</h3>
-      <table class="table mx-5 table-borderless">
+      <table class="table table-bordered mx-5">
         <tbody>
           <tr>
             <th>購入者</th>
@@ -68,7 +68,7 @@
         </table>
       </div>
       <div class="col-4">
-        <table class="table table-borderless mx-5">
+        <table class="table table-bordered mx-5">
           <tr>
             <th>商品合計</th>
             <td><%= @order.total_payment.to_s(:delimited) %>円</td>
