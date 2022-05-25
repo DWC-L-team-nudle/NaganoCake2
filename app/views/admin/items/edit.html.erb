@@ -1,35 +1,41 @@
-<div class="container pt-5">
+<div><%= render 'layouts/errors', obj: @item %></div>
+<div class="container py-3">
   <div class="row">
-   <h4>商品編集</h4>
+     <h3 class="mini-title mt-3">商品編集</h3>
   </div>
+  
+  <div class="row px-5 mx-5 mt-4">
+  <di class="col-9">
    <%= form_with model: @item, url: admin_item_path(@item), method: :patch do |f| %>
-  <div>
-     <%= f.label :商品画像 %>
+  </div>
+  <div class="row form-group">
+     <%= f.label :商品画像, class: "col-3"%>
      <%= f.file_field :item_image, accept: "image/*" %>
   </div>
-  <div>
-     <%= f.label :商品名 %>
+  <div class="row form-group">
+     <%= f.label :商品名, class: "col-3"%>
      <%= f.text_field :name %>
   </div>
-  <div>
-    <%= f.label :商品説明 %>
+  <div class="row form-group">
+    <%= f.label :商品説明, class: "col-3"%>
     <%= f.text_area :introduction %>
   </div>
-  <div>
-    <%= f.label :ジャンル %>
+  <div class="row form-group">
+    <%= f.label :ジャンル, class: "col-3"%>
     <%= f.collection_select(:genre_id, @genres, :id, :name, {prompt: "--選択してください--"}) %>
   </div>
-  <div>
-    <%= f.label :税抜価格 %>
+  <div class="row form-group">
+    <%= f.label :税抜価格, class: "col-3"%>
     <%= f.text_field :price %>円
   </div>
-  <div>
-    <%= f.label :販売ステータス %>
+  <div class="row form-group">
+    <%= f.label :販売ステータス, class: "col-3"%>
     <%= f.radio_button :is_active, true %>販売中
     <%= f.radio_button :is_active, false %>販売停止中
   </div>
-  <div>
-     <%= f.submit "変更を保存" %>
+  <div class="actions mb-5 mt-5">
+     <%= f.submit "変更を保存", class: "btn btn-success" %>
   </div>
    <% end %>
+   </div>
  </div>
