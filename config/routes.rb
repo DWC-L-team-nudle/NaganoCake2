@@ -12,6 +12,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
 namespace :admin do
 root to: 'homes#top'
+get "search" => "searches#search"
 resources :customers, only: [:index,:show,:edit,:update] do
   get 'order_index' => 'customers#order_index'
 end
