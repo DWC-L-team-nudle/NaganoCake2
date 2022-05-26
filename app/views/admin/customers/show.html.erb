@@ -5,7 +5,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-8">
+    <div class="col-8 ml-5">
       <table class="table table-bordered ml-5">
         <tbody>
           <tr>
@@ -52,10 +52,10 @@
           </tr>
         </tbody>
       </table>
+      <div class="mt-4 mb-4 text-center">
+      <%= link_to "編集する", edit_admin_customer_path(params[:id]), class: "btn btn-success mr-3" %>
+    <%= link_to "#{@customer.last_name + @customer.first_name}さんの注文履歴一覧を見る", admin_customer_order_index_path(@customer), class: "btn btn-primary" %>
+      </div>
     </div>
   </div>
-   <div class="ml-5 mt-5">
-    <%= link_to "編集する", edit_admin_customer_path(params[:id]), class: "btn btn-success mr-3" %>
-    <%= link_to "#{@customer.last_name + @customer.first_name}さんの注文履歴一覧を見る", admin_customer_order_index_path(@customer), class: "btn btn-primary" %>
-   </div>
 </div>
