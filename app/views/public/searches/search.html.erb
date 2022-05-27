@@ -10,8 +10,8 @@
           <% @items.each do |item| %>
             <div class="col-4 text-center">
               <%= link_to item_path(item) do %>
-                <%= image_tag item.get_item_image(210,150) %>
-                <%= item.name %>
+                <%= image_tag item.get_item_image(210,150) %></br>
+                <%= item.name %></br>
               <% end %>
               <p>¥<%= item.price.to_s(:delimited) %></p>
             </div>
@@ -21,7 +21,7 @@
             <%= paginate @items %>
           </div>
         <% else %>
-          <div class=>
+          <div>
             <h4>お探しの商品はありません。</h4>
           </div>
         <% end %>
